@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width: 200px">Môn</th>
+        <th style="width: 80px">Điểm</th>
+    </tr>
+    <tr>
+        <td>Toán:</td>
+        <td><input type="number" name="Toán" id="1" placeholder="Điểm Toán"></td>
+    </tr>
+    <tr>
+        <td>Lý:</td>
+        <td><input type="number" name="Lý" id="2" placeholder="Điểm Lý"></td>
+    </tr>
+    <tr>
+        <td>Hóa:</td>
+        <td><input type="number" name="Hóa" id="3"placeholder="Điểm Hóa"></td>
+    </tr>
+    <tr>
+        <td>Điểm Trung Bình:</td>
+        <td id="4"></td>
+    </tr>
+    <tr>
+        <td>Tổng điểm:</td>
+        <td id="5"></td>
+    </tr>
+</table>
+<button type="button" onclick="check()">Check</button>
+<script>
+    function check() {
+        let x = +document.getElementById('1').value;
+        let y = +document.getElementById('2').value;
+        let z = +document.getElementById('3').value
+        document.getElementById('5').innerHTML = x+y+z
+        document.getElementById('4').innerHTML = (x+y+z)/3
+
+
+    }
+</script>
+</body>
+</html>

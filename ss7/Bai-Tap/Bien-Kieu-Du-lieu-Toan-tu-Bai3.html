@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dien Tich Hinh tron</title>
+</head>
+<body>
+<input type="text" placeholder="Ban kinh" id="Bankinh">
+<button type="button" onclick="dientich()">Dien Tich</button>
+<p id="dientichhinhtron"></p>
+<script>
+  function dientich() {
+    let r = +document.getElementById('Bankinh').value
+    let pi = 3.14
+    document.getElementById('dientichhinhtron').innerHTML ='Diện Tich Hình tròn là:'+ pi*r*r
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen Doi Tien Te</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="number" id="tien"></td>
+        <td><select id="Tu">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+        </select></td>
+        <td><select id="Sang">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+        </select></td>
+        <td>
+            <button type="button" onclick="chuyenDoiTienTe()">Chuyen Tien</button>
+        </td>
+    </tr>
+</table>
+<p id="tiente"></p>
+<script>
+    function chuyenDoiTienTe() {
+        let money = document.getElementById('tien').value
+        let from = document.getElementById('Tu').value
+        let to = document.getElementById('Sang').value
+        let result
+        if (from == "USD" && to == "VND") {
+            result = "Giá trị là: " + (money * 26000) + " Đồng";
+        } else if (from == "VND" && to == "USD") {
+            result = "Giá trị là: " + (money / 26000) + " $";
+        } else if (from == "VND") {
+            result = "Giá trị là: " + money + " Đồng"
+        } else {
+            result = "Giá trị là: " + money + " $"
+        }
+
+        document.getElementById("tiente").innerHTML = result;
+    }
+
+</script>
+
+</body>
+</html>

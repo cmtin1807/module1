@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung dung may tinh</title>
+</head>
+<body>
+<from>
+<input type="text" id="sothunhat" placeholder="Số A" >
+<input type="text" id="sothuhai" placeholder="Số B">
+<button type="button" onclick="cong()">Cộng</button>
+<button type="button" onclick="tru()">Trừ</button>
+<button type="button" onclick="nhan()">Nhân</button>
+<button type="button" onclick="chia()">Chia</button>
+<h1>RESULT:</h1>
+<p id="result">Đây là kết quả</p>
+</from>
+<script>
+  function cong() {
+    let A = +document.getElementById('sothunhat').value
+    let B = +document.getElementById('sothuhai').value
+    document.getElementById('result').innerHTML= A+B
+  }
+  function tru() {
+    let A = +document.getElementById('sothunhat').value
+    let B = +document.getElementById('sothuhai').value
+    document.getElementById('result').innerHTML= A-B
+  }
+  function nhan() {
+    let A = +document.getElementById('sothunhat').value
+    let B = +document.getElementById('sothuhai').value
+    document.getElementById('result').innerHTML= A*B
+  }
+  function chia() {
+    let A = +document.getElementById('sothunhat').value
+    let B = +document.getElementById('sothuhai').value
+    document.getElementById('result').innerHTML= A/B
+  }
+</script>
+
+</body>
+</html>
