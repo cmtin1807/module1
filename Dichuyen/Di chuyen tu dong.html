@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="luffy.jpg" alt="" style="width: 200px; top: 100px; left: 0px; position: absolute" id="x">
+</body>
+<script>
+  setInterval(dothing,10)
+  function dothing() {
+    let anh = document.getElementById('x')
+    let left = parseInt(anh.style.left) + 1
+    anh.style.left =  left + 'px'
+    if (left > 1280){
+      anh.style.left = 0 + 'px'
+    }
+
+
+  }
+</script>
+</html>

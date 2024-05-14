@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen met sang do feet</title>
+</head>
+<body>
+<input type="number" id="met" placeholder="Met">
+<button type="button" onclick="chuyendoidodai()">Chuyen doi</button>
+<hr>
+<p>Result</p>
+<p id="Ft"></p>
+<script>
+    function chuyendoidodai() {
+        let M = document.getElementById('met').value
+        document.getElementById('Ft').innerHTML = M*3.2808 + ' Ft'
+    }
+</script>
+</body>
+</html>

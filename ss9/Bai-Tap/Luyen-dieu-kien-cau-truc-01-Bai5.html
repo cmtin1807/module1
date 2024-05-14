@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xep hang dua tren diem thi</title>
+</head>
+<body>
+<p>Điểm kiểm tra có hệ số là 2, điểm thi giữa kỳ có hệ số là 3, điểm thi cuối kỳ có hệ số là 5<br>
+    Nếu tổng điểm <40 là xếp loại yếu <br>
+    Nếu tổng điểm >=40 và <60 là xếp lọai trung bình <br>
+    Nếu tổng điểm >=60 và <80 là xếp loại khá <br>
+    Nếu tổng điểm >=80 thì xếp loại giỏi
+</p>
+<table>
+    <tr>
+        <th>Kỳ kiểm tra</th>
+        <th>Điểm</th>
+    </tr>
+    <tr>
+        <td>Điểm kiểm tra:</td>
+        <td><input type="number" id="kiemtra"></td>
+    </tr>
+    <tr>
+        <td>Điểm thi giữa kỳ:</td>
+        <td><input type="number" id="giuaky"> </td>
+    </tr>
+    <tr>
+        <td>Điểm thi cuối kỳ:</td>
+        <td><input type="number" id="cuoiky"> </td>
+    </tr>
+    <tr>
+        <td>Tổng điểm:</td>
+        <td id="Tongdiem"></td>
+    </tr>
+    <tr>
+        <td>Xếp loại:</td>
+        <td id="xeploai" ></td>
+    </tr>
+</table>
+<button type="button" onclick="kiemtra()">Xuất kết quả</button>
+<script>
+    function kiemtra() {
+        let A = document.getElementById('kiemtra').value
+        let B = document.getElementById('giuaky').value
+        let C = document.getElementById('cuoiky').value
+        let D = A*2 + B*3 + C*5
+        document.getElementById('Tongdiem').innerHTML= D
+        if (D < 40){
+            document.getElementById('xeploai').innerHTML= 'Yếu'
+        }
+        else {
+            if (D < 60){
+                document.getElementById('xeploai').innerHTML= 'Trung bình'
+            }
+            else {
+                if (D < 80){
+                    document.getElementById('xeploai').innerHTML= 'Khá'
+                }
+                else {
+                    document.getElementById('xeploai').innerHTML= 'Giỏi'
+                }
+            }
+        }
+    }
+    let a = Math.sqrt(4)
+    alert(a)
+</script>
+</body>
+</html>

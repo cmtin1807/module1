@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p> Bang gia dien chia lam 5 bac trong 1 thang<br>
+    100kw dau co gia la 1500d/1kw<br>
+    100kw tiep theo co gia la 1700d/1kw<br>
+    100kw tiep theo nua co gia la 2000d/1kw<br>
+    100kw tiep theo nua co gia la 2300d/1kw<br>
+    tu 401 kw tro len co gia la 2500d/1kw
+</p>
+<p> So kw dien cua 1 ho gia dinh su dung trong 1 thang</p>
+<input type="number" id="chudien" placeholder="sochudien">
+<button type="button" onclick="kiemtratiendien()">Check tien dien</button>
+<p> Gia cuoc dien cua gia dinh do trong 1 thang</p>
+<p id="tiendien"></p>
+   <script>
+       function kiemtratiendien() {
+           let sodien = document.getElementById('chudien').value
+           if (sodien <= 100){
+               document.getElementById('tiendien').innerHTML = sodien*1500 + ' Dong'
+           }
+           else
+               if (sodien <= 200){
+                   document.getElementById('tiendien').innerHTML = 100*1500 +(sodien-100)*1700 + ' Dong'
+               }
+               else
+                   if (sodien <= 300){
+                       document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + (sodien-200)*2000 + ' Dong'
+                   }
+                   else
+                       if (sodien <= 400){
+                           document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + 100*2000 + (sodien-300)*2300 + ' Dong'
+                       }
+                       else {
+                           document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + 100*2000 + 100*2300 + (sodien - 400)*2500 + ' Dong'
+                       }
+
+       }
+   </script>
+</body>
+</html>

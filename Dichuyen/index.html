@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="luffy.jpg" alt="" style="width: 200px; top: 100px; left: 100px; position: absolute"; id="x">
+<button onclick="phai()">Sang phai</button>
+<button onclick="trai()">Sang trai</button>
+<button onclick="tren()">Len tren</button>
+<button onclick="duoi()">Xuong duoi</button>
+<script>
+    function phai() {
+        let anh = document.getElementById('x')
+        anh.style.left = parseInt(anh.style.left) + 20 + 'px'
+    }
+    function trai() {
+        let anh = document.getElementById('x')
+        anh.style.left = parseInt(anh.style.left) - 20 + 'px'
+    }
+    function tren() {
+        let anh = document.getElementById('x')
+        anh.style.top = parseInt(anh.style.top) - 20 + 'px'
+    }
+    function duoi() {
+        let anh = document.getElementById('x')
+        anh.style.top = parseInt(anh.style.top) + 20 + 'px'
+    }
+</script>
+</body>
+</html>

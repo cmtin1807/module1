@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra tuoi cua nguoi</title>
+</head>
+<body>
+<input type="number" id="tuoi" placeholder="So Tuoi">
+<button type="button" onclick="tuoinguoi()">Check</button>
+<hr>
+<p> Result</p>
+<p id="Result"></p>
+</body>
+<script>
+    function tuoinguoi() {
+        let Tuoi = document.getElementById('tuoi').value
+    if (Tuoi > 0 && Tuoi < 120){
+        document.getElementById('Result').innerHTML = Tuoi + ' la tuoi cua nguoi'
+    }
+    else {
+        document.getElementById('Result').innerHTML = Tuoi + ' khong phai tuoi cua nguoi'
+    }
+    }
+</script>
+</html>

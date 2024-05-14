@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá cước</title>
+</head>
+<body>
+<p>Tính giá cước hộ gia đình theo block 6s, với mỗi 6s là 200d, ví dụ 5s giá cước là 200d, 10s giá cước là 400d</p>
+<br>
+<p>Thời gian cuộc gọi (s):</p>
+<input type="number" id="thoigiancuocgoi">
+<button type="button" onclick="cuoccuocgoi()">Kiem tra cuoc</button>
+<p>Giá cước cho cuộc gọi là:</p>
+<p id="cuoc"></p>
+<script>
+    function cuoccuocgoi() {
+        let thoigian = +(document.getElementById('thoigiancuocgoi').value)
+        let soblock = Math.floor(thoigian/6)
+        if (thoigian%6==0){
+            document.getElementById('cuoc').innerHTML = thoigian/6*200 + ' Đồng'
+    }
+        else {
+            document.getElementById('cuoc').innerHTML = (soblock + 1)*200 + ' Đồng'
+        }
+
+    }
+</script>
+</body>
+</html>

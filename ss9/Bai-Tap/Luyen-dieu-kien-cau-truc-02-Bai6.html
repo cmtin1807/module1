@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Phuong trinh bac 1 </title>
+</head>
+<body>
+<p> Phuong trinh ax + b = 0 </p>
+<input type="number" id="hesoa" placeholder="He so A">
+<input type="number" id="hesob" placeholder="He so B">
+
+<button type="button" onclick="timx()">Timx</button>
+<hr>
+<p>Result</p>
+<p id="x"></p>
+<script>
+    function timx() {
+        let a = document.getElementById('hesoa').value
+        let b = document.getElementById('hesob').value
+        document.getElementById('x').innerHTML = (-b/a)
+    }
+</script>
+</body>
+</html>

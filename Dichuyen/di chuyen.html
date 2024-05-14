@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Di chuyen</title>
+</head>
+<body>
+<img src="luffy.jpg" alt="" style="width: 200px; height: 300px; top: 100px; left: 0px; position: absolute" ; id="x">
+<script>
+
+    //ess6 vjs(15)
+    function doThing() {
+     let left = parseInt(document.getElementById('x').style.left) + 1
+        document.getElementById('x').style.left = left+"px";
+        if (left>1280){
+            document.getElementById('x').style.left = 0+'px'
+        }
+
+    }
+
+    setInterval(doThing, 10)
+
+
+</script>
+</body>
+
+</html>

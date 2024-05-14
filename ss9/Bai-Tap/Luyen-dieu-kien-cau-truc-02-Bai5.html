@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien tich tam giac vuong </title>
+</head>
+<body>
+<input type="number" id="canhkea" placeholder="Canh ke A">
+<input type="number" id="canhkeb" placeholder="Canh ke B">
+
+<button type="button" onclick="dientich()">Dien tich</button>
+<hr>
+<p>Result</p>
+<p id="dientichtamgiac"></p>
+<script>
+    function dientich() {
+        let a = document.getElementById('canhkea').value
+        let b = document.getElementById('canhkeb').value
+        document.getElementById('dientichtamgiac').innerHTML = a*b/2
+    }
+</script>
+</body>
+</html>

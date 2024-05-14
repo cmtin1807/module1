@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<img src="luffy.jpg" alt="" style="width: 200px; top: 100px; left: 0px; position: absolute" id="x">
+</body>
+<script>
+  setInterval(dothing,1)
+  function dothing() {
+    let anh = document.getElementById('x')
+    let left = parseInt(anh.style.left) + 1
+    anh.style.left =  left + 'px'
+    if (left > 1280){
+        for (var counts = 0; counts < 1280; counts++) {
+            moveRight();
+            function moveRight() {
+                anh.style.left = parseInt(imgObj.style.left) - 1 + 'px';
+
+            }
+      }
+    }
+
+
+  }
+</script>
+</html>
+</body>
+</html>

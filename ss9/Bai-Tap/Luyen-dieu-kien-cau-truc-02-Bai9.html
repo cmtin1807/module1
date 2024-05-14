@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra 3 so thuc</title>
+</head>
+<body>
+<input type="text" id="a" placeholder="Canh A">
+<input type="text" id="b" placeholder="Canh B">
+<input type="text" id="c" placeholder="Canh C">
+<button type="button" onclick="kiemtra()">Check</button>
+<hr>
+<p id="result"></p>
+</body>
+<script>
+    function kiemtra() {
+    let A = parseInt(document.getElementById('a').value)
+    let B = parseInt(document.getElementById('b').value)
+    let C = parseInt(document.getElementById('c').value)
+    let AB = A+B
+    let BC = B+C
+    let AC = A+C
+    if (A > 0 && B > 0 && C > 0 && AB > C && BC > A && AC > B){
+    document.getElementById('result').innerHTML = 'la 3 canh tam giac'
+    }
+    else {
+        document.getElementById('result').innerHTML = 'khong phai la 3 canh tam giac'
+    }
+    }
+
+</script>
+</html>

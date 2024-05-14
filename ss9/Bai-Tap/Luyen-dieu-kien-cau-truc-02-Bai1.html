@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen do C sang do F</title>
+</head>
+<body>
+<input type="number" id="doC" placeholder="Do C">
+<button type="button" onclick="chuyendoinhietdo()">Chuyen doi</button>
+<hr>
+<p>Result</p>
+<p id="doF"></p>
+<script>
+    function chuyendoinhietdo() {
+        let C = document.getElementById('doC').value
+        document.getElementById('doF').innerHTML = (C*9/5)+32 + ' Do F'
+    }
+</script>
+</body>
+</html>
