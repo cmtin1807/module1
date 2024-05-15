@@ -7,20 +7,8 @@
 <body>
 <script>
     let login = prompt("Enter:");
-    if (login == 'Employee'){
-        alert('Hello')
-    }
-    else
-        if (login == 'Director'){
-            alert('Greetings')
-        }
-        else
-            if (login == ''){
-                alert('No loggin')
-            }
-            else {
-                alert('')
-            }
+    let message = (login == 'Employee') ? 'Hello' : (login == 'Director') ? 'Greetings' : (login == '') ? 'No login' :  '';
+    alert(message);
 
 </script>
 </body>
