@@ -21,15 +21,15 @@
     function kiemtratiendien() {
         let soDien = document.getElementById('chudien').value
         if (soDien <= 100) {
-            document.getElementById('tiendien').innerHTML = soDien * 1500 + ' Dong'
+            document.getElementById('tiendien').innerHTML = (soDien * 1500).toLocaleString() + ' Dong'
         } else if (soDien <= 200) {
-            document.getElementById('tiendien').innerHTML = 100 * 1500 + (soDien - 100) * 1700 + ' Dong'
+            document.getElementById('tiendien').innerHTML = (100 * 1500 + (soDien - 100) * 1700).toLocaleString() + ' Dong'
         } else if (soDien <= 300) {
-            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + (soDien - 200) * 2000 + ' Dong'
+            document.getElementById('tiendien').innerHTML = (100 * 1500 + 100 * 1700 + (soDien - 200) * 2000).toLocaleString() + ' Dong'
         } else if (soDien <= 400) {
-            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + 100 * 2000 + (soDien - 300) * 2300 + ' Dong'
+            document.getElementById('tiendien').innerHTML = (100 * 1500 + 100 * 1700 + 100 * 2000 + (soDien - 300) * 2300).toLocaleString() + ' Dong'
         } else {
-            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + 100 * 2000 + 100 * 2300 + (soDien - 400) * 2500 + ' Dong'
+            document.getElementById('tiendien').innerHTML = (100 * 1500 + 100 * 1700 + 100 * 2000 + 100 * 2300 + (soDien - 400) * 2500).toLocaleString() + ' Dong'
         }
 
     }
