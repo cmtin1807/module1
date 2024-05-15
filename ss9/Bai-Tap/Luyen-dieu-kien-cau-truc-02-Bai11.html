@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thue Thu nhap ca nhan</title>
 </head>
 <body>
+<p>Thu nhap cua nguoi lao dong:
+    Luong duoi 10tr thi nop thue 5% <br>
+    Luong tu 10tr den duoi 20tr  thi nop thue 10% <br>
+    Luong tu 20tr tro len thi nop thue 12% <br>
+    Tinh thue cua 1 nguoi bat ky
+</p>
 
 </body>
+<script>
+    let S = +prompt('Nhap so tien luong:')
+    if (S < 10000000)  {
+        alert(S*0.05)
+    }
+    else if (S < 20000000) {
+        alert(S*0.1)
+    }
+    else {
+        alert(S*0.12)
+    }
+
+</script>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+  <img id="myImage" src="luffy-gear-6-7.jpg" style = "width: 200px; left: 0px; top: 100px; position: absolute"/>
+    <button type="button" onclick="trai()">Trai</button>
+    <button type="button" onclick="phai()">Phai</button>
+    <button type="button" onclick="len()">Len</button>
+    <button type="button" onclick="xuong()">Xuong</button>
+</form>
+</body>
+<script>
+    function trai() {
+        let anh = document.getElementById('myImage')
+        let left = parseInt(anh.style.left) - 2
+        anh.style.left = left + 'px'
+    }
+    function phai() {
+        let anh = document.getElementById('myImage')
+        let right = parseInt(anh.style.left) + 2
+        anh.style.left = right + 'px'
+    }
+    function len() {
+        let anh = document.getElementById('myImage')
+        let top = parseInt(anh.style.top) - 2
+        anh.style.top = top + 'px'
+    }
+    function xuong() {
+        let anh = document.getElementById('myImage')
+        let xuong = parseInt(anh.style.top) + 2
+        anh.style.top = xuong + 'px'
+    }
+
+</script>
+</html>

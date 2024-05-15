@@ -5,9 +5,10 @@
     <title> Phuong trinh bac 1 </title>
 </head>
 <body>
-<p> Phuong trinh ax + b = 0 </p>
+<p> Phuong trinh Ax<sup>2</sup> + Bx + C = 0 </p>
 <input type="number" id="hesoa" placeholder="He so A">
 <input type="number" id="hesob" placeholder="He so B">
+<input type="number" id="hesoc" placeholder="He so C">
 
 <button type="button" onclick="timx()">Timx</button>
 <hr>
@@ -17,9 +18,24 @@
     function timx() {
         let a = document.getElementById('hesoa').value
         let b = document.getElementById('hesob').value
-        let c = a*b
-        c = x*x
-        document.getElementById('x').innerHTML = x
+        let c = document.getElementById('hesoc').value
+        let Delta = b*b - (4*a*c)
+        let candelta = Math.sqrt(Delta)
+        if (a == 0) {
+            document.getElementById('x').innerHTML = -c/b
+        }
+        else
+            if (Delta > 0){
+                document.getElementById('x').textContent = 'Phương trình có 2 nghiệm: x1 = ' + (-b + candelta)/2 + ' Và ' + 'x2 =  ' + (-b - candelta)/2
+            }
+            else
+                if (Delta == 0){
+                    document.getElementById('x').textContent = 'Phương trình có nghiệm kép: x = ' + -b / (2 *a) + ' va ' + b / (2 *a);
+                }
+                else {
+                    document.getElementById('x').textContent = 'Phương trình vô nghiệm';
+                }
+
     }
 </script>
 </body>

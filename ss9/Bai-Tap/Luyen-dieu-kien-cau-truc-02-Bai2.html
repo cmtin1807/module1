@@ -6,12 +6,12 @@
 </head>
 <body>
 <input type="number" id="met" placeholder="Met">
-<button type="button" onclick="chuyendoidodai()">Chuyen doi</button>
+<button type="button" onclick="chuyenDoiDoDai()">Chuyen doi</button>
 <hr>
 <p>Result</p>
 <p id="Ft"></p>
 <script>
-    function chuyendoidodai() {
+    function chuyenDoiDoDai() {
         let M = document.getElementById('met').value
         document.getElementById('Ft').innerHTML = M*3.2808 + ' Ft'
     }

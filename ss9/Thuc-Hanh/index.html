@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form>
+  <img id="myImage" src="luffy-gear-6-7.jpg" style = "width: 200px; left: 0px; top: 100px; position: absolute"/>
+  <button type="button" onclick="trai()">Trai</button>
+  <button type="button" onclick="phai()">Phai</button>
+  <button type="button" onclick="len()">Len</button>
+  <button type="button" onclick="xuong()">Xuong</button>
+</form>
+</body>
+<script>
+  let v = 5;
+  let v1 = 5;
+  setInterval(chaydi, 50)
+  function chaydi() {
+    let anh = document.getElementById('myImage');
+    anh.style.left = parseInt(anh.style.left) + v + 'px';
+    anh.style.top = parseInt(anh.style.top) + v1 + 'px';
+    if (parseInt(anh.style.left) > window.innerWidth - 200 || parseInt(anh.style.left) == 0) {
+      // anh.style.left = '0px';
+      v = -v;
+    }
+    if (parseInt(anh.style.top) > window.innerHeight - 100 || parseInt(anh.style.top) == 0) {
+      // anh.style.left = '0px';
+      v1 = -v1;
+    }
+  }
+</script>
+</html>

@@ -17,29 +17,22 @@
 <button type="button" onclick="kiemtratiendien()">Check tien dien</button>
 <p> Gia cuoc dien cua gia dinh do trong 1 thang</p>
 <p id="tiendien"></p>
-   <script>
-       function kiemtratiendien() {
-           let sodien = document.getElementById('chudien').value
-           if (sodien <= 100){
-               document.getElementById('tiendien').innerHTML = sodien*1500 + ' Dong'
-           }
-           else
-               if (sodien <= 200){
-                   document.getElementById('tiendien').innerHTML = 100*1500 +(sodien-100)*1700 + ' Dong'
-               }
-               else
-                   if (sodien <= 300){
-                       document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + (sodien-200)*2000 + ' Dong'
-                   }
-                   else
-                       if (sodien <= 400){
-                           document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + 100*2000 + (sodien-300)*2300 + ' Dong'
-                       }
-                       else {
-                           document.getElementById('tiendien').innerHTML = 100*1500 + 100*1700 + 100*2000 + 100*2300 + (sodien - 400)*2500 + ' Dong'
-                       }
+<script>
+    function kiemtratiendien() {
+        let soDien = document.getElementById('chudien').value
+        if (soDien <= 100) {
+            document.getElementById('tiendien').innerHTML = soDien * 1500 + ' Dong'
+        } else if (soDien <= 200) {
+            document.getElementById('tiendien').innerHTML = 100 * 1500 + (soDien - 100) * 1700 + ' Dong'
+        } else if (soDien <= 300) {
+            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + (soDien - 200) * 2000 + ' Dong'
+        } else if (soDien <= 400) {
+            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + 100 * 2000 + (soDien - 300) * 2300 + ' Dong'
+        } else {
+            document.getElementById('tiendien').innerHTML = 100 * 1500 + 100 * 1700 + 100 * 2000 + 100 * 2300 + (soDien - 400) * 2500 + ' Dong'
+        }
 
-       }
-   </script>
+    }
+</script>
 </body>
 </html>
