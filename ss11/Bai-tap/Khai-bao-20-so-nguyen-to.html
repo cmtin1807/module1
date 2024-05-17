@@ -10,7 +10,8 @@
 
 <body>
 <script>
-    let dem = 0
+    let dem = 1
+    document.write(2 + '<br>')
     for (let x = 3;; x++) {
         let kq = true;
         for (let i = 2; i <= Math.sqrt(x); i++) {
@@ -19,12 +20,11 @@
                 break;
             }
         }
-
         if (kq) {
             document.write(x + '<br>')
             dem++;
         }
-        if (dem>20){
+        if (dem >= 20){
             break;
         }
     }
