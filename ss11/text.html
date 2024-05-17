@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let N = +prompt('Nhập N');
+  let S = +prompt('Nhập S');
+  for (let x = N; x <=S;x++) {
+    for(let y = x+1; y <=S;y++) {
+      let z = S - x - y;
+      if (z <= y) {
+        break;
+      }
+      document.write(x + ',' + y + ',' + z + '<br>');
+    }
+  }
+</script>
+</body>
+</html>

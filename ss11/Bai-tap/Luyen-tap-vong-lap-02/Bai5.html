@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let A = parseInt(prompt('Nhap So tien ban dau'))
+    let N = +prompt('Nhap so thang:')
+    let lai = +prompt('Nhap so lai (%):')
+    for (let i = 0; i < N; i++) {
+        A = A*(1 + 0.01*lai)
+    }
+    alert(A)
+</script>
 </body>
 </html>
