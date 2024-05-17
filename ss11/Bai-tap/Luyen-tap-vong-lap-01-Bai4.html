@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let N = soChiaHetCho5()
+    function soChiaHetCho5() {
+        let a = 0
+        let b = 1
+        let c = a + b
+        while (c % 5 !== 0) {
+            a = b
+            b = c
+            c = a + b
+        }
+        return c
+    }
+    document.write(N)
+
+</script>
+
+</body>
+</html>

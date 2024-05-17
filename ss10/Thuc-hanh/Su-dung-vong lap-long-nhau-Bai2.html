@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let soult;
+  let ngang;
+  let docc;
+  soult = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
+  ngang = docc = 1
+  while ( docc <=10){
+    soult = soult + '<tr>';
+    while ( ngang <=10) {
+      soult = soult + '<td>' + ngang*docc + '</td>';
+      ngang++;
+    }
+    soult = soult + '</tr>';
+    ngang = 1
+    docc++;
+  }
+  soult = soult + '</table>'
+  document.write(soult)
+</script>
+</body>
+</html>

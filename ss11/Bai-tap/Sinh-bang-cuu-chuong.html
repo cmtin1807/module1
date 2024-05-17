@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soult = "<table border='1'>";
+    let i = 1
+    let j = 2
+    for (; i < 10 ; i++) {
+        soult += '<tr>'
+        for (; j < 10; j++) {
+            soult += '<td>' + j + 'x' + i + '=' + j*i +'</td>'
+        }
+        j = 2
+        soult += '</tr>'
+    }
+    soult += '</table>'
+    document.write(soult)
+</script>
+</body>
+</html>
