@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Sample Screen</h3>
+<input type="text" id="txtValue">
+<button type="button" onclick="addMang()">Add</button>
+<button type="button" onclick="displayMang()">Display</button>
+<p id="result"></p>
+</body>
+
+</html>
+<script>
+    let x = 0
+    let array = Array()
+    function addMang() {
+        array[x] = document.getElementById("txtValue").value;
+        alert('Gia tri: ' + array[x] + ' la phan tu thu: ' + x);
+        x++;
+        document.getElementById("txtValue").value =''
+    }
+    function displayMang() {
+        let n = '<hr>'
+        for (let i = 0; i < array.length ; i++) {
+            n += 'Elenment ' + i + ' = ' + array[i] +'<br>'
+        }
+        document.getElementById("result").innerHTML = n
+    }
+
+
+
+</script>
