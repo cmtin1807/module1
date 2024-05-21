@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let x = [3,5,6,7,8,11,24,42,11,22]
+  let max = x[0]
+  let index = 0
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] > max){
+      max = x[i];
+      index = i
+    }
+  }
+  alert('Gia tri lon nhat la: ' + max + ' nam o vi tri ' + index)
+</script>
+</body>
+</html>

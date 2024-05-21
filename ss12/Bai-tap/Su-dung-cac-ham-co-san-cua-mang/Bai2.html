@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = window.prompt('Nhap day so:')
+  let str = n.toString()
+  let a = [str[0]]
+  for (let i = 1; i < str.length; i++) {
+    if (str[i-1]%2 == 0 && str[i]%2==0){
+      a.push('-', str[i])
+    }
+    else {
+        a.push(str[i])
+    }
+
+  }
+  alert(a.join(''))
+</script>
+</body>
+</html>

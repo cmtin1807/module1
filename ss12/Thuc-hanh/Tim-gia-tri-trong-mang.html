@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt('Nhap gia tri can tim:')
+    let x = [4, 5, 6, 5, 3, 13, 11]
+    let index = -1
+    for (let i = 0; i < x.length; i++) {
+        if (n==x[i]) {
+            index = i;
+        }
+    }
+    if (index > -1){
+        alert('Gia tri ' + n + ' nam o vi tri ' + index)
+    }
+    else {
+        alert('Gia tri ' + n + ' khong nam o trong mang x')
+    }
+</script>
+</body>
+</html>

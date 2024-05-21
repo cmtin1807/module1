@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = [11,12,13,2,4,6,15,17,3,10]
+  let max = a[0]
+  for (let i = 0; i < a.length; i++) {
+    if (max < a[i]){
+      max = a[i]
+    }
+  }
+  let b = eval(a.join('+'))/a.length
+  alert('Gia tri lon nhat: ' + max)
+  alert('Gia tri trung binh: ' + b)
+</script>
+</body>
+</html>

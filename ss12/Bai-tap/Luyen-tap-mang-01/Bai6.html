@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = [11,-12,13,2,4,-6,15,-17,3,10]
+  dem = 0
+  let V = +prompt('Nhap so nguyen V: ')
+  for (let i = 0; i < a.length; i++) {
+    if (a[i]==V){
+      dem++
+    }
+  }
+  if (dem==0){
+    alert(V + 'khong nam trong mang')
+  }
+  else {
+    alert(V + 'nam trong mang')
+  }
+</script>
+
+</body>
+</html>

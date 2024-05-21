@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [11,12,13,2,4,6,15,17,3,10]
+    let first = 0
+    let last = a.length - 1
+    while (first < last){
+        b = a[first]
+        a[first] = a[last]
+        a[last] = b
+        first++
+        last--
+    }
+    alert(a)
+</script>
+</body>
+</html>
