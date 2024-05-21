@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let a = [11,-12,13,2,4,-6,15,-17,3,10]
+  dem = 0
+  let V = +prompt('Nhap so nguyen V: ')
+  for (let i = 0; i < a.length; i++) {
+    if (a[i]==V){
+      a.splice(i, 1)
+      a.push(0)
+    }
+  }
+document.write(a)
+</script>
+
+</body>
+</html>
