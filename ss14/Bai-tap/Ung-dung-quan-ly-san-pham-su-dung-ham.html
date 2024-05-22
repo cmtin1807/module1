@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  a = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Aplle Iphone 6s', 'Aplle Iphone 7', , 'Aplle Iphone 6P' , 'Samsung M1']
+  data = '<table border="1">'
+  for (let i = 0; i < a.length; i++) {
+    data += '<tr>'
+    for (let j = 1; j < 4; j++) {
+      if (j == 1){
+          data += '<td>'+a[i]+'</td>'
+      }else if (j == 2){
+          data += '<td><button type=\"button\" onclick=\"eDit()\">Edit</button> </td>'
+      }else{
+          data += '<td><button type=\"button\" onclick=\"deLeTe()\">Delete</button> </td>'
+      }
+    }
+  }
+  data += '</table>'
+
+  function eDit(n){
+      let d = prompt('Nhap sua chua')
+      a[0] = d
+  }
+  document.write(data)
+</script>
+</body>
+</html>

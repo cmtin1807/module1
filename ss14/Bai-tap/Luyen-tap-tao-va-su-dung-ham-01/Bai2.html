@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhap so ban dau  <input type="number" id="soBanDau" oninput="giaTriTiepTheo()"> Gia tri sau do la: <span id="soSauDo"></span>
+</p>
+</body>
+<script>
+    function giaTriTiepTheo(a) {
+        let kq = +document.getElementById('soBanDau').value + 1
+        document.getElementById('soSauDo').innerHTML = kq
+
+    }
+
+</script>
+</html>

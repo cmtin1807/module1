@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let a = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+    let b = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+    let c = prompt('Gia tri ten cac ngoi sao:')
+  kiemTra(a, b)
+    function kiemTra(a, b) {
+        let e = true
+        let f = 0
+        for (let i = 0; i < a.length; i++) {
+            if (c == a[i]) {
+                e = true;
+                f = i
+                break;
+            } else {
+                e = false
+            }
+        }
+        if (e){
+            document.write(c + 'c o ngoi sao tuong ung la ' + b[f])
+        }
+        else {
+            document.write(c + ' khong co gia tri tuong ung')
+        }
+    }
+</script>
+
+</body>
+</html>

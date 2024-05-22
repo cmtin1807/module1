@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = + prompt('Nhap vao 1 ky tu: ')
+    let b = kiemTraKyTu(a)
+    function kiemTraKyTu(a) {
+        let check = true
+        for (let i = 0; i < 10; i++) {
+            if (a==i){
+                check = true;
+                break;
+            }
+            else {
+                check = false
+            }
+        }
+        return check
+
+    }
+    alert(b)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function quaTrinhConfirm(answer) {
+    if (answer){
+      cauTraLoi = 'Chung ta se choi game len thach dau'
+    }
+    else {
+      cauTraLoi = 'Khong, ban qua ga'
+    }
+    return cauTraLoi;
+  }
+  let cauHoi = confirm('Choi game chung khong?')
+  let traLoi = quaTrinhConfirm(cauHoi)
+  alert(traLoi)
+</script>
+</body>
+</html>

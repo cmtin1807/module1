@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function chuyenTuMetSangFeet (Met){
+    return met*3.279
+  }
+  function chuyenTuFeetSangMet (Feet){
+    return feet*0.305
+  }
+  let met = +prompt('Nhap so met: ')
+  let feet = +prompt('Nhap so feet: ')
+  let kqmet = chuyenTuMetSangFeet(met)
+  let kqfeet = chuyenTuFeetSangMet(feet)
+  document.write(met +' meter = ' + kqmet + ' feet <br>' )
+  document.write(feet +' feet = ' + kqfeet + ' meter ')
+</script>
+
+</body>
+</html>

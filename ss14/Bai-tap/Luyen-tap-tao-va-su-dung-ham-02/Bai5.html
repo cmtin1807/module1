@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt('Nhap so nguyen A:')
+    let b = +prompt('Nhap so nguyen B')
+    let c = +prompt('Nhap so nguyen C')
+    let sosanh = soSanhNhoNhat(a, b, c)
+        function soSanhNhoNhat(a, b, c) {
+        if (a < b){
+            if (a < c){
+                return a
+            }
+            else {
+                return c
+            }
+        }
+        else if (b<c){
+            return b
+        }
+        else {
+            return c
+        }
+
+        }
+        alert('So nho nhat trong 3 so la: ' + sosanh)
+</script>
+</body>
+</html>

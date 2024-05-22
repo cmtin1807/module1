@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt('Nhap vao 1 so nguyen bat ky: ')
+    checkSoDuongAm(a)
+    function checkSoDuongAm(a){
+        let b = true
+        if (a>0){
+            b = true
+            alert(b)
+        }
+        else if (a<0){
+            b = false
+            alert(b)
+        }
+        else {
+            alert(a + ' khong phai nguyen am cung nguyen duong')
+        }
+    }
+
+</script>
+</body>
+</html>
