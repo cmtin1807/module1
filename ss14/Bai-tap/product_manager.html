@@ -6,12 +6,9 @@
 
 </head>
 <body>
-<h3>Add New Product</h3>
-<input id="name" width="60%">
-<button onclick="add()" style="background: deepskyblue">Add</button>
-<h3>Display Product</h3>
 <div id ="result"></div>
-
+<input id="name">
+<button onclick="add()">save</button>
 <script>
     let productList = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Aplle Iphone 6s', 'Aplle Iphone 7' , 'Aplle Iphone 6P' , 'Samsung M1'];
     display()
@@ -21,7 +18,7 @@
         display()
     }
     function display(){
-        let data = `<table border="1" cellpadding="5px" cellspacing="0px">
+        let data = `<table border="1">
                         <tr>
                             <th>STT</th>
                             <th>Name</th>
@@ -32,8 +29,8 @@
             data += ` <tr>
                         <td>${i+1}</td>
                         <td>${productList[i]}</td>
-                        <td><button onclick="editProduct(${i})" style="background: deepskyblue">Edit</button></td>
-                        <td><button onclick="deleteProduct(${i})" style="background: deepskyblue">Delete</button></td>
+                        <td><button onclick="editProduct(${i})">Edit</button></td>
+                        <td><button onclick="deleteProduct(${i})">Delete</button></td>
                        </tr>`
 
         }
@@ -41,18 +38,9 @@
         document.getElementById("result").innerHTML=data
     }
     function deleteProduct(index){
-        function quaTrinhConfirm(answer) {
-            if (answer){
-                cauTraLoi = productList.splice(index,1)
-                display()
-            }
-            else {
-                cauTraLoi = display()
-            }
-            return cauTraLoi;
-        }
-        let cauHoi = confirm('Ban co muon xoa khong?')
-        let traLoi = quaTrinhConfirm(cauHoi)
+
+     productList.splice(index,1)
+        display()
     }
     function editProduct(index){
         productList[index] = prompt('')
