@@ -8,7 +8,7 @@
 <script>
     let b = prompt('Nhap ky tu bat ky: ')
     let a = [2, 5, 7, 4, 6, 3, 1, 1, 1, 1, 'p', 'm']
-    checkKyTu(a, b)
+    let soLan= checkKyTu(a, b)
 
     function checkKyTu(a, b) {
         let n = 0
@@ -18,10 +18,13 @@
             }
         }
         if (n != 0){
-            alert(n)
+            return n
         }
-        else {alert('-1')}
+        else {
+            return -1
+        }
     }
+    alert(soLan)
 
 
 </script>

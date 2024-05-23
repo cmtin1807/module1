@@ -7,7 +7,7 @@
 </head>
 <body>
 <h3>Add New Product</h3>
-<input id="name" width="60%">
+<input id="name" width="60%" placeholder="New Product">
 <button onclick="add()" style="background: deepskyblue">Add</button>
 <h3>Display Product</h3>
 <div id ="result"></div>
@@ -17,11 +17,18 @@
     display()
     function add(){
         let name = document.getElementById("name").value;
-        productList.push(name);
-        display()
+        if (name == ''){
+            alert('Bạn chưa nhập sản phẩm. Vui lòng nhập tên sản phẩm')
+        }
+        else {
+            productList.push(name);
+            document.getElementById("name").value= ""
+            display()
+        }
+
     }
     function display(){
-        let data = `<table border="1" cellpadding="5px" cellspacing="0px">
+        let data = `<table border="1" cellpadding="2px" cellspacing="0px">
                         <tr>
                             <th>STT</th>
                             <th>Name</th>
