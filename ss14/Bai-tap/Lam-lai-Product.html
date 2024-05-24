@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add New Product</h3>
+<input id="name">
+<button onclick="add()">Add</button>
+<h3>Display All Product</h3>
+<div id="result"></div>
+<ul type=""
+<script>
+    let productListNew = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Aplle Iphone 6s', 'Aplle Iphone 7' , 'Aplle Iphone 6P' , 'Samsung M1'];
+    function add() {
+        product = document.getElementById('name').value
+        if (product == ''){
+            alert('Bạn chưa nhập sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
+        }
+        else {
+            productListNew.push(product)
+            document.getElementById('name').value = ''
+            display()
+        }
+    }
+    display()
+    function display() {
+        let data = `<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>San Pham</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>`
+        for (let i = 0; i < productListNew.length; i++) {
+            data+= `   <tr>
+        <td>${i+1}</td>
+        <td>${productListNew[i]}</td>
+        <td><button onclick="editProduct(${i})">Edit</button> </td>
+        <td><button onclick="deleteProduct(${i})">Delete</button> </td>
+    </tr>`
+
+        }
+        data+=`</table>`
+        document.getElementById('result').innerHTML = data
+    }
+    function editProduct(index) {
+        productListNew[index] = prompt('Sửa sản phẩm lại thành: ')
+        display()
+    }
+    function deleteProduct(index) {
+        function cauTraLoi(answer) {
+            if (answer) {
+                productListNew.splice(index, 1)
+                display()
+            } else
+                display()
+        }
+        let cauHoi = confirm('Bạn có thật sự muốn xóa sản phẩm hay không')
+        cauTraLoi(cauHoi)
+    }
+
+</script>
+</body>
+</html>
