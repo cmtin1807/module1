@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1 id="content">Hello</h1>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Price</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<button id="btn-add" onclick="add()">Add</button>
+<script>
+  class Book {
+    constructor(id, name, price) {
+      this.id = id;
+      this.name = name;
+      this.price = price;
+    }
+  }
+
+  if (sessionStorage.getItem('list') == null) {
+    sessionStorage.setItem("list", JSON.stringify([new Book(1,"Toán",100)]))
+  }
+
+  display();
+  function add() {
+    let productList = JSON.parse(sessionStorage.getItem("list"));
+
+    productList.push(new Book(2,"sinh học",200));
+    sessionStorage.setItem("list", JSON.stringify(productList))
+    display()
+  }
+
+  function display(){
+    let productList = JSON.parse(sessionStorage.getItem("list"));
+
+    console.log(productList)
+  }
+
+</script>
+</body>
+</html>

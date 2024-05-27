@@ -1,0 +1,96 @@
+* {
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    font-family: Arial;
+}
+body{
+    background-image: url("https://media.giphy.com/media/dWfMYHHOmHoWi2oSOm/giphy.gif");
+}
+#container {
+    padding: 5px;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+.square{
+    width: 6.25%;
+    padding: 2px;
+    border: 1px solid #ff2a00;
+    cursor: pointer;
+    overflow:hidden;
+    background: rgba(255,255,255,0.5);
+}
+.square:before{
+    content:'';
+    float: left;
+    padding-top:100%;
+}
+.square img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.btn1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #b4dc28;
+    border-radius: 5px;
+    margin-left: 10px !important;
+    color: #000000;
+}
+.btn1:hover{
+    transition: transform 1s;
+    transform: scale(1.2);
+    background-color: #dc7975;
+}
+.btn-med {
+    padding: 10px;
+}
+#newGame{
+    background: #0000ff;
+}
+#board-cpanel{
+    margin-top: 10px;
+    padding: 10px;
+    z-index: 100;
+}
+#board {
+    overflow: auto;
+    margin: 0 auto;
+    background-image: url("pikachu.jpg");
+}
+
+#board-table {
+    border: 1px solid #00027f;
+    min-width: 200px;
+    table-layout: fixed;
+}
+@media only screen and (max-width: 380px){
+    #board{
+        width: 90%;
+    }
+    #board-table{
+        width:340px;
+    }
+
+}
+@media only screen and (min-width: 414px){
+    #board{
+        width: 90%;
+    }
+    #board-table{
+        width: 375px;
+    }
+
+}
+@media only screen and (min-width: 1000px) {
+    #board {
+        width: 40%;
+    }
+
+    #board-table {
+        width: 100%;
+    }
+}
