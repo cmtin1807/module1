@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [5,6,4,7,9,6,5,4]
+  findAvg(arr)
+  function findAvg(arr) {
+    let avg = 0
+      let sum = 0
+      for (let i = 0; i < arr.length; i++) {
+         sum+= arr[i]
+      }
+      avg = sum/arr.length
+      alert(`Diem trung binh la ${avg}`)
+  }
+</script>
+</body>
+</html>
