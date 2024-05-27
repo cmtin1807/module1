@@ -37,11 +37,11 @@
         product = document.getElementById('name').value
         price = document.getElementById('price').value
         quantity = document.getElementById('quantity').value
-        if (product == '' || quantity == '' || hang == '' || id == '' || price == '') {
+        if (id == '' || hang == '' || product == '' ||  price == '' || quantity == '') {
             alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
         } else {
             let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-            productList.push(new Book(id,product,price,quantity));
+            productList.push(new Book(id,hang,product,price,quantity));
             document.getElementById('id').value = ''
             document.getElementById('hang').value = ''
             document.getElementById('name').value = ''
