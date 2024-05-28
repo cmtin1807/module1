@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management</title>
+
+</head>
+<img src="dmx.png" id="logo">
+<h1> QUẢN LÝ KHO ĐIỆN THOẠI </h1>
+<table style=" border: 1px solid black; width: 800px; float: right">
+  <tr>
+    <th style="font-size: 40px" colspan="7">Danh sách điện thoại</th>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <th>Hãng</th>
+    <th>Tên Sản Phẩm</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Ảnh</th>
+    <th>Tùy chọn</th>
+
+  </tr>
+  <tbody id="list-student">
+  </tbody>
+</table>
+
+<table border="1" style="width: 500px; height: 300px" ;>
+  <tr id="id1">
+    <th colspan="2"> Thông tin học viên</th>
+  </tr>
+
+  <tr>
+    <th>ID</th>
+    <td><input type="number" id="id"></td>
+
+  </tr>
+  <tr>
+    <th>Hãng</th>
+    <td><input type="text" id="hang"></td>
+  </tr>
+  <tr>
+    <th>Tên Sản Phẩm</th>
+    <td><input type="text" id="sanPham"></td>
+  </tr>
+  <tr>
+    <th>Giá</th>
+    <td><input type="text" id="gia"></td>
+  </tr>
+  <tr>
+    <th>Số lượng</th>
+    <td><input type="text" id="soLuong"></td>
+  </tr>
+  <tr>
+    <th>Ảnh</th>
+    <td><input type="text" id="img"></td>
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <button style="background-color: limegreen" id="add" onclick="addProduct()">Add</button>
+      <button style="background-color: gold" id="edit" onclick="updateProduct()">Save</button>
+    </td>
+  </tr>
+</table>
+<script src="js/StudentManagement.js"></script>
+<script src="js/Student.js"></script>
+<script src="js/main.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</body>
+</html>

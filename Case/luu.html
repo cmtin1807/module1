@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản Lý Điện Thoại Của Cửa Hàng Điện Máy Xanh</title>
+  <style>
+    #logo{
+      width: 100%;
+      height: 160px;
+    }
+    h1{
+      text-align: center; font-size: 50px;
+      background-color: RED;
+      margin: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 200px;
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+  </style>
+</head>
+<img src="../Thi-Case/Quan-Ly-Dien-Thoai-Dien-May-Xanh/dmx.png" id="logo">
+<h1> KHO QUẢN LÝ ĐIỆN THOẠI </h1>
+<body>
+<form>
+  <input id="username" type="text" placeholder="Enter username">
+  <input id="password" type="password" placeholder="Enter password">
+  <button type="button" onclick="login()">Login</button>
+</form>
+<button id="change" style="display: none" onclick="changeToAdmin()">Change Account</button>
+<div id="form" style="display: none">
+  <h3>Thêm Sản Phẩm Điện Thoại Vào Kho</h3>
+  <input type="text" id="id" placeholder="ID">
+  <input type="text" id="hang" placeholder="Hãng">
+  <input type="text" id="name" placeholder="Tên Điện Thoại">
+  <input type="text" id="price" placeholder="Giá Điện Thoại">
+  <input type="text" id="quantity" placeholder="Số Lượng">
+  <button id="add" onclick="add()">Add</button>
+  <button id="update" onclick="update()">Update</button>
+</div>
+
+<h3>Tất Cả Sản Phẩm Điện Thoại Trong Kho Cửa Hàng</h3>
+<span>Tìm kiếm: </span><input id="timkiem" type="text"><button type="button" onclick="timKiem()">Tim</button>
+<span>Sắp xếp theo:</span>
+
+  <select id="sortOptions" onchange="sortProducts()">
+    <option value="hang">Hãng</option>
+    <option value="name">Tên Sản Phẩm</option>
+  </select>
+  <select id="sortNumber" onchange="sortNumber()">
+  <option value="price">Giá</option>
+  <option value="quantity">Số Lượng Sản Phẩm</option>
+  </select>
+
+<div id="result"></div>
+<script>
+
+  class Book {
+    constructor(id, hang, name, price, quantity) {
+      this.id = id;
+      this.hang = hang
+      this.name = name;
+      this.price = price;
+      this.quantity = quantity;
+    }
+
+    getId() {
+      return this.id
+    }
+
+  }
+
+  if (sessionStorage.getItem('productListNew') == null) {
+    sessionStorage.setItem("productListNew", JSON.stringify([
+      new Book(1, 'Samsung', "Samsung Galaxy S22", 900, 5),
+      new Book(2, 'Iphone ', 'Iphone 6S', 100, 10),
+      new Book(3, 'Iphone', 'Iphone 15Pro Max', 1100, 11),
+      new Book(4, 'Samsung', "Samsung Galaxy S23", 1200, 6),
+    ]))
+  }
+  display()
+  function login() {
+    let user = document.getElementById('username').value
+    let pass = document.getElementById('password').value
+    if (user == 'nguyen' && pass == '123'){
+      changeToAdmin();
+      document.getElementById('username').value = ''
+      document.getElementById('password').value = ''
+    }
+    else {
+      alert('sai user va mat khau')
+    }
+  }
+  function changeToAdmin(){
+    let formAdd = document.getElementById("form");
+    formAdd.style.display ="block";
+    var buttons = document.querySelectorAll(".btn-edit");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.display = "block";
+    }
+
+    var buttons2 = document.querySelectorAll(".btn-delete");
+    for (var i = 0; i < buttons2.length; i++) {
+      buttons2[i].style.display = "block";
+    }
+  }
+  function timKiem() {
+    let input = document.getElementById('timkiem');
+    let filter = input.value.toUpperCase();
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+    let filteredProducts = [];
+    for (let i = 0; i < productList.length; i++) {
+      if (productList[i].name.toUpperCase().includes(filter)) {
+        filteredProducts.push(productList[i]);
+      }
+    }
+    hienThiLai(filteredProducts);
+  }
+
+  function sortProducts() {
+    let sortValue = document.getElementById('sortOptions').value;
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+
+    // Sort the productList based on the selected option
+    productList.sort((a, b) => {
+      if (a[sortValue] < b[sortValue]) return -1;
+      if (a[sortValue] > b[sortValue]) return 1;
+      return 0;
+    });
+
+    // Display the sorted products
+    hienThiLai(productList);
+  }
+  function sortNumber() {
+    let sortValue = document.getElementById('sortNumber').value;
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+
+    // Sắp xếp sản phẩm dựa trên thuộc tính được chọn
+    productList.sort((a, b) => {
+      // Chuyển đổi giá trị sang kiểu số để so sánh
+      let aValue = parseFloat(a[sortValue]);
+      let bValue = parseFloat(b[sortValue]);
+
+      return aValue - bValue;
+    });
+
+    // Hiển thị danh sách sản phẩm đã sắp xếp
+    hienThiLai(productList);
+  }
+
+  function hienThiLai(filteredProducts) {
+    let data = `<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Hãng</th>
+        <th>Sản Phẩm</th>
+        <th>Giá ($)</th>
+        <th>Số Lượng</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>`;
+    for (let i = 0; i < filteredProducts.length; i++) {
+      data += `<tr>
+        <td>${i + 1}</td>
+        <td>${filteredProducts[i].id}</td>
+        <td>${filteredProducts[i].hang}</td>
+        <td>${filteredProducts[i].name}</td>
+        <td>${filteredProducts[i].price}</td>
+        <td>${filteredProducts[i].quantity}</td>
+        <td><button class="btn-edit" style="display: none" onclick="editProduct(${i})">Edit</button> </td>
+        <td><button class="btn-delete" style="display: none"  onclick="deleteProduct(${i})">Delete</button> </td>
+    </tr>`;
+    }
+    data += `</table>`;
+    document.getElementById('result').innerHTML = data;
+  }
+
+
+  function add() {
+    let id = document.getElementById('id').value
+    let hang = document.getElementById('hang').value
+    let name = document.getElementById('name').value
+    let price = document.getElementById('price').value
+    let quantity = document.getElementById('quantity').value
+    if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {
+      alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
+    } else {
+      let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+      productList.push(new Book(id, hang, name, price, quantity));
+      document.getElementById('id').value = ''
+      document.getElementById('hang').value = ''
+      document.getElementById('name').value = ''
+      document.getElementById('price').value = ''
+      document.getElementById('quantity').value = ''
+      sessionStorage.setItem("productListNew", JSON.stringify(productList))
+
+      display()
+    }
+    var buttons = document.querySelectorAll(".btn-edit");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.display = "block";
+    }
+
+    var buttons2 = document.querySelectorAll(".btn-delete");
+    for (var i = 0; i < buttons2.length; i++) {
+      buttons2[i].style.display = "block";
+    }
+
+  }
+
+
+
+  function display() {
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+    console.log(productList)
+    let data = `<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Hãng</th>
+        <th>Sản Phẩm</th>
+        <th>Giá ($)</th>
+        <th>Số Lượng</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>`
+    for (let i = 0; i < productList.length; i++) {
+      data += `   <tr>
+        <td>${i + 1}</td>
+        <td>${productList[i].id}</td>
+        <td>${productList[i].hang}</td>
+        <td>${productList[i].name}</td>
+        <td>${productList[i].price}</td>
+        <td>${productList[i].quantity}</td>
+        <td><button class="btn-edit" style= " display: none" onclick="editProduct(${i})">Edit</button> </td>
+        <td><button class="btn-delete" style= " display: none"  onclick="deleteProduct(${i})">Delete</button> </td>
+    </tr>`
+    }
+    data += `</table>`
+    document.getElementById('result').innerHTML = data
+  }
+
+  let indexx = 0
+
+  function editProduct(index) {
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+    let book = productList[index]
+    document.getElementById('id').value = book.id;
+    document.getElementById('hang').value = book.hang;
+    document.getElementById('name').value = book.name;
+    document.getElementById('price').value = book.price;
+    document.getElementById('quantity').value = book.quantity;
+    display()
+    var buttons = document.querySelectorAll(".btn-edit");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.display = "block";
+    }
+
+    var buttons2 = document.querySelectorAll(".btn-delete");
+    for (var i = 0; i < buttons2.length; i++) {
+      buttons2[i].style.display = "block";
+    }
+    indexx = index
+  }
+
+
+  function update() {
+    let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+    let id = document.getElementById('id').value;
+    let hang = document.getElementById('hang').value;
+    let name = document.getElementById('name').value;
+    let price = document.getElementById('price').value;
+    let quantity = document.getElementById('quantity').value;
+
+    if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {
+      alert('Bạn chưa nhập đầy đủ thông tin sản phẩm. Vui lòng nhập đầy đủ thông tin.')
+    } else {
+      productList[indexx].id = id;
+      productList[indexx].hang = hang;
+      productList[indexx].name = name;
+      productList[indexx].price = price;
+      productList[indexx].quantity = quantity;
+
+      sessionStorage.setItem("productListNew", JSON.stringify(productList));
+      display();
+
+      // Reset form fields
+      document.getElementById('id').value = '';
+      document.getElementById('hang').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('price').value = '';
+      document.getElementById('quantity').value = '';
+    }
+    var buttons = document.querySelectorAll(".btn-edit");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].style.display = "block";
+    }
+
+    var buttons2 = document.querySelectorAll(".btn-delete");
+    for (var i = 0; i < buttons2.length; i++) {
+      buttons2[i].style.display = "block";
+    }
+
+
+  }
+
+  function deleteProduct(index) {
+    function cauTraLoi(answer) {
+      if (answer) {
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"))
+        productList.splice(index, 1)
+        sessionStorage.setItem("productListNew", JSON.stringify(productList))
+        display()
+      } else{
+        display()}
+      var buttons = document.querySelectorAll(".btn-edit");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.display = "block";
+      }
+
+      var buttons2 = document.querySelectorAll(".btn-delete");
+      for (var i = 0; i < buttons2.length; i++) {
+        buttons2[i].style.display = "block";
+      }
+
+    }
+
+    let cauHoi = confirm('Bạn có thật sự muốn xóa sản phẩm hay không')
+    cauTraLoi(cauHoi)
+  }
+
+</script>
+</body>
+</html>

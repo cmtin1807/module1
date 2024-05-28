@@ -5,17 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<h3>Add New Product</h3>
-<input id="id" placeholder="ID">
-<input id="hang" placeholder="Hãng">
-<input id="name" placeholder="Tên Điện Thoại">
-<input id="price" placeholder="Giá Điện Thoại">
-<input id="quantity" placeholder="Số Lượng">
-<button id="add" onclick="add()">Add</button>
+<form>
+    <input id="username" placeholder="enter username">
+    <input id="password" type="password" placeholder="enter password">
+    <button type="button" onclick="login()">Login</button>
+</form>
+<button id="change" style="display: none" onclick="changeToAdmin()">Change Accout</button>
+<div id="form" style="display: none">
+    <h3>Add New Product</h3>
+    <input id="id" placeholder="ID">
+    <input id="hang" placeholder="Hãng">
+    <input id="name" placeholder="Tên Điện Thoại">
+    <input id="price" placeholder="Giá Điện Thoại">
+    <input id="quantity" placeholder="Số Lượng">
+    <button id="add" onclick="add()">Add</button>
+    <button id="update" onclick="update()">UpDate</button>
+</div>
+
 <h3>Display All Product</h3>
 <div id="result"></div>
 <script>
-   class Book {
+
+    class Book {
         constructor(id, hang, name, price, quantity) {
             this.id = id;
             this.hang = hang
@@ -24,24 +35,52 @@
             this.quantity = quantity;
         }
 
+        getId() {
+            return this.id
+        }
+
     }
 
     if (sessionStorage.getItem('productListNew') == null) {
-        sessionStorage.setItem("productListNew", JSON.stringify([new Book(1,'Samsung', "Samsung Galaxy S22", 1000, 5),
-            new Book(2,'Iphone ', 'Iphone 6S', 100, 10),
-            new Book(3,'Iphone', 'Iphone 15Pro Max', 1100, 11)]))
+        sessionStorage.setItem("productListNew", JSON.stringify([new Book(1, 'Samsung', "Samsung Galaxy S22", 1000, 5),
+            new Book(2, 'Iphone ', 'Iphone 6S', 100, 10),
+            new Book(3, 'Iphone', 'Iphone 15Pro Max', 1100, 11)]))
+    }
+    display()
+    function changeToAdmin(){
+        let formAdd = document.getElementById("form");
+        formAdd.style.display ="block";
+        // Lựa chọn tất cả các button có class là "btn-edit"
+        var buttons = document.querySelectorAll(".btn-edit");
+
+// Lặp qua từng button và đặt thuộc tính display của chúng thành "block"
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].style.display = "block";
+        }
+    }
+    function login() {
+        let user = document.getElementById('username').value
+        let pass = document.getElementById('password').value
+        if (user == 'nguyen' && pass == '123'){
+            changeToAdmin();
+            document.getElementById('username').value = ''
+            document.getElementById('password').value = ''
+        }
+        else {
+            alert('sai user va mat khau')
+        }
     }
     function add() {
-        id = document.getElementById('id').value
-        hang = document.getElementById('hang').value
-        product = document.getElementById('name').value
-        price = document.getElementById('price').value
-        quantity = document.getElementById('quantity').value
-        if (id == '' || hang == '' || product == '' ||  price == '' || quantity == '') {
+        let id = document.getElementById('id').value
+        let hang = document.getElementById('hang').value
+        let product = document.getElementById('name').value
+        let price = document.getElementById('price').value
+        let quantity = document.getElementById('quantity').value
+        if (id == '' || hang == '' || product == '' || price == '' || quantity == '') {
             alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
         } else {
             let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-            productList.push(new Book(id,hang,product,price,quantity));
+            productList.push(new Book(id, hang, product, price, quantity));
             document.getElementById('id').value = ''
             document.getElementById('hang').value = ''
             document.getElementById('name').value = ''
@@ -52,7 +91,7 @@
         }
     }
 
-    display()
+
 
     function display() {
         let productList = JSON.parse(sessionStorage.getItem("productListNew"));
@@ -76,14 +115,15 @@
         <td>${productList[i].name}</td>
         <td>${productList[i].price}</td>
         <td>${productList[i].quantity}</td>
-        <td><button onclick="editProduct(${i})">Edit</button> </td>
+        <td><button class="btn-edit" style="display: none" onclick="editProduct(${i})">Edit</button> </td>
         <td><button onclick="deleteProduct(${i})">Delete</button> </td>
     </tr>`
-
         }
         data += `</table>`
         document.getElementById('result').innerHTML = data
     }
+
+    let indexx = 0
 
     function editProduct(index) {
         let productList = JSON.parse(sessionStorage.getItem("productListNew"));
@@ -94,6 +134,29 @@
         document.getElementById('price').value = book.price;
         document.getElementById('quantity').value = book.quantity;
         display()
+        indexx = index
+    }
+
+
+    function update() {
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+        productList[indexx].id = document.getElementById('id').value
+        productList[indexx].hang = document.getElementById('hang').value
+        productList[indexx].name = document.getElementById('name').value
+        productList[indexx].price = document.getElementById('price').value
+        productList[indexx].quantity = document.getElementById('quantity').value
+        console.log(productList)
+        if (id == '' || hang == '' || product == '' || price == '' || quantity == '') {
+            alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
+        } else {
+            document.getElementById('id').value = ''
+            document.getElementById('hang').value = ''
+            document.getElementById('name').value = ''
+            document.getElementById('price').value = ''
+            document.getElementById('quantity').value = ''
+            sessionStorage.setItem("productListNew", JSON.stringify(productList))
+            display()
+        }
     }
 
     function deleteProduct(index) {

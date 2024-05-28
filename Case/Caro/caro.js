@@ -296,11 +296,6 @@ function squareClick(row, col) {
         prepBotY = bestMoveForBot.col;
     }
 }
-
-function undo() {
-    alert('Tin người vậy ??!! ');
-}
-
 function resign() {
     GameIsPlaying = false;
     alert('Bỏ cuộc rồi sao =))');
