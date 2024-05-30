@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap do dai cua mang')
+  let arr = new Array()
+  for (let i = 0; i < n; i++) {
+    let element = prompt(`Nhap phan tu thu ${i} cua mang:`)
+    arr[i] = element
+  }
+  alert(arr)
+  let tang = 0
+  let giam = 0
+  for (let i = 0; i < n; i++) {
+      if (arr[i] > arr[i + 1]) {
+          giam++
+      } else if  (arr[i] < arr[i + 1])
+      {tang++
+      }
+  }
+  console.log(tang)
+  console.log(giam)
+  if (tang == n-1 || giam == n-1){
+      alert('Ok')
+
+  }
+  else [alert('No')]
+
+</script>
+
+</body>
+</html>

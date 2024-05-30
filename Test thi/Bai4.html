@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let n = str.length
+    let hoa = 0
+    let thuong = 0
+    let UPPER = "QWERTYUIOPLKJHGFDSAZXCVBNM"
+    let lower = "qwertyuioplkjhgfdsazxcvbnm"
+    for (let i = 0; i < str.length; i++) {
+      if (UPPER.indexOf(str[i]) !== -1)
+      {hoa++}
+      else {
+        thuong++
+      }
+    }
+    alert(hoa)
+    alert(thuong)
+    if (hoa == thuong){
+      alert(true)
+    }
+    else {alert(false)}
+  }
+  let str = "MatToi"
+  let check = checkString(str)
+</script>
+</body>
+</html>

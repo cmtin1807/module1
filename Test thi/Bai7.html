@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao do dai cua mang')
+  let arr = new Array()
+  for (let i = 0; i < n;) {
+    let element = ''
+    do {
+      element = +prompt('nhap vao so lon hon 10 va nho hon 100')
+    }
+    while (element <= 10 || element >= 100);
+    i++
+    arr.push(element)
+  }
+  alert(arr)
+  let brr = []
+  for (let i = 0; i < n; i++) {
+      let str = arr[i].toString()
+      if (str[0]<str[1])
+      {brr.push(arr[i])}
+      }
+
+  alert(brr)
+</script>
+</body>
+</html>

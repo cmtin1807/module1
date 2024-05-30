@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = ''
+  do {
+    n = +prompt("nhap do dai chan cua mang")
+  }
+  while (n%2==1);
+  let arr = new Array()
+  for (let i = 0; i < n; i++) {
+    let element = +prompt(`Nhap phan tu ${i} cua mang`)
+    arr.push(element)
+  }
+  alert(arr)
+  let count = 0
+  for (let i = 0; i < n; i++) {
+    if (i%2 == 0) {
+      if (arr[i]<arr[i+1]){
+        count++
+      }
+    }
+  }
+  if (count == n/2){
+    alert('OK')
+  }
+  else {alert('NO')}
+
+</script>
+</body>
+</html>

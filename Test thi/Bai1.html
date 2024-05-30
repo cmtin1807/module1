@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao so phan tu cua mang')
+  let arr = new Array()
+  for (let i = 0; i < n; i++) {
+    let b = prompt(`Nhap vao phan tu thu ${i}`)
+    arr.push(b)
+  }
+  alert(arr)
+  let chan = 0
+  let le = 0
+  for (let i = 0; i < n; i++) {
+    if (arr[i]%2 == 0){
+      chan++
+    }
+    else {le++}
+  }
+  if (chan==le){
+    alert('OK')
+  }
+  else{
+    alert('NO')
+  }
+</script>
+</body>
+</html>
