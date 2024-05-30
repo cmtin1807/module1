@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Điện Thoại Của Cửa Hàng Điện Máy Xanh</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<div id="container">
+    <img src="dmx.png" id="logo">
+    <h1> KHO QUẢN LÝ ĐIỆN THOẠI </h1>
+    <form>
+        <input id="userName" type="text" placeholder="UserName">
+        <input id="passWord" type="password" placeholder="PassWord">
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    <button style="display: none" onclick="changeToAdmin()">Change To Admin</button>
+    <div id="them" style="display: none">
+        <h3>Tất Cả Sản Phẩm Điện Thoại Trong Kho Cửa Hàng </h3>
+        <input id="id" type="text" placeholder="ID Điện Thoại">
+        <input id="hang" type="text" placeholder="Hãng Điện Thoại">
+        <input id="tenDienThoai" type="text" placeholder="Tên Điện Thoại">
+        <input id="gia" type="text" placeholder="Giá điện Thoại">
+        <input id="soLuong" type="text" placeholder="Số Lượng Điện Thoại">
+        <button id="add" onclick="add()">ADD</button>
+        <button id="upDate" onclick="upDate()">UPDATE</button>
+    </div>
+    <h3>Tất Cả Sản Phẩm Điện Thoại Trong Kho Cửa Hàng</h3>
+    <span>Tìm Kiếm: </span><input id="timKiem" type="text">
+    <button onclick="timKiem()">Tìm</button>
+    <span>Sắp Xếp Theo:</span>
+    <select id="sortName" onchange="sortName()">
+        <option value="hang">Hãng</option>
+        <option value="tenDienThoai">Tên Điện Thoại</option>
+    </select>
+    <select id="sortNumber" onchange="sortNumber()">
+        <option value="gia">Giá</option>
+        <option value="soLuong">Số Lượng</option>
+    </select>
+    <div id="result"></div>
+</div>
+<script src="class.js"></script>
+<script src="main.js"></script>
+<script src="button.js"></script>
+<script src="login.js"></script>
+</body>
+</html>
