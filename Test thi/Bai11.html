@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let UPPER = 'QWERTYUIOPASDFGHJKLZXCVBNMqwrtyuiopasdfghjklzxcvbnm0123456789'
+    let str1 = []
+    for (let i = 0; i < str.length; i++) {
+      if (UPPER.indexOf(str[i]) == - 1){
+        str1.push(str[i])
+      }
+    }
+      let str2 = str1.join('')
+      alert(str2)
+
+  }
+  let str = 'Hoahau920121-=-='
+  checkString(str)
+</script>
+
+</body>
+</html>

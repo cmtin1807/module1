@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao do dai cua mang')
+  let arr = new Array()
+  for (let i = 0; i < n; i++) {
+    let element = prompt(`Nhap vao do dai thu ${i} cua mang`)
+    arr.push(element)
+  }
+  count = 0
+  alert(arr)
+  for (let i = 0; i < arr.length; i++) {
+    let a = 0
+    let b = 1
+    for (let j = 0; j <= arr[i]; j++) {
+      if (arr[i] == 0 || arr[i] == 1){
+        count++
+        break;
+      }
+      let c = a + b
+      a = b
+      b = c
+      if (arr[i]== c){
+        count++
+        break;
+      }
+    }
+  }
+  console.log(count)
+  if (count == n){
+    alert('Ok')
+  }
+  else {alert('No')}
+</script>
+
+</body>
+</html>

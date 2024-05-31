@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('do dai cua mang vuong')
+  let arr = new Array(n)
+  for (let i = 0; i < arr.length; i++) {
+    arr[i]=new Array(n)
+    for (let j = 0; j < arr[i].length; j++) {
+      let element = +prompt(`Nhap vao phan tu thu ${j} cua mang con ${i} cua mang`)
+      arr[i][j]= element
+    }
+  }
+  console.log(arr)
+  let sumchinh = 0
+  let sumphu = 0
+  for (let i = 0; i < arr.length; i++) {
+      sumchinh+= arr[i][i]
+      sumphu+= arr[i][arr.length - 1 - i]
+  }
+  alert(sumchinh)
+  alert(sumphu)
+
+</script>
+</body>
+</html>

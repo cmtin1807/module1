@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Do dai cua mang')
+  let arr= new Array()
+  for (let i = 0; i < n; i++) {
+    let element = +prompt(`Nhap vao phan tu thu ${i} cua mang`)
+    arr.push(element)
+  }
+  alert(arr)
+  let brr = []
+  for (let i = 0; i < n; i++) {
+    let sum = 0
+    for (let j = 1; j <= arr[i]; j++) {
+      if (arr[i] % j == 0){
+        sum += j
+      }
+    }
+    brr.push(sum)
+  }
+  alert(brr)
+</script>
+
+</body>
+</html>

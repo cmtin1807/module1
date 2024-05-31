@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+
+    let cach = " "
+    let str1 = []
+    let count = 0
+    for (let i = 0; i < str.length; i++) {
+      if (cach.indexOf(str[i])!== -1){
+        str1.push(str[i+1])
+        count++
+      }
+    }
+    if (count == 0){
+      alert(str)
+    }
+    else {
+    str1.unshift(str[0])
+    alert(str1.join(''))
+  }}
+  let str = 'Nguyen Dep Trai'
+  checkString(str)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkString(str) {
+    let UPPER = 'QWERTYUIOPASDFGHJKLZXCVBNM'
+    let str1 = []
+    for (let i = 0; i < str.length; i++) {
+      if (UPPER.indexOf(str[i])!= - 1)
+        str1.push(str[i])
+    }
+    alert(str1.join(''))
+  }
+  let str = 'Hello CoDeGym'
+  checkString(str)
+</script>
+</body>
+</html>

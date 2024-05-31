@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkArray(array) {
+        let count = true
+        for (let i = 0; i < array.length; i++) {
+            if (array[i]/1 === array[i]){
+                count = true
+                continue;
+            }
+            else {
+                count = false;
+                break;
+            }
+        }
+        alert(count)
+
+    }
+    checkArray([2,3.5,"45"])
+</script>
+</body>
+</html>
