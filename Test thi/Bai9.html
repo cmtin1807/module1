@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao do dai cua mang')
+  let arr = new Array()
+  for (let i = 0; i < n; i++) {
+    let element = +prompt(`Nhap gia tri phan tu thu ${i}`)
+    arr.push(element)
+  }
+  alert(arr)
+  let sum = 0
+  let avg = 0
+  for (let i = 0; i < n; i++) {
+    sum+= i
+    }
+  avg = sum/n
+  let count = 0
+  for (let i = 0; i < n; i++) {
+    if (avg == arr[i]){
+      count++
+    }
+
+  }
+  alert(count)
+
+
+</script>
+</body>
+</html>
+</body>
+</html>
