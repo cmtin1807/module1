@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function find(x) {
+      if (x[0] == '/' || x[x.length-1]=='/'){
+          alert('Khong phai phan so')
+  }else
+      {
+          let index = 0
+          for (let i = 1; i < x.length-1; i++) {
+              if (x[i]=='/'){
+                  index = i
+              }
+
+          }
+          alert(index)
+          let tu = x.slice(0,index)
+          alert(tu)
+          let mau = x.slice(index+1)
+          alert(mau)
+          if(tu==0||mau==0){alert('Khong phai phan so')}
+          else {
+          let uocTu = [];
+          let uocMau = [];
+          for (let i = 2; i <= tu; i++) {
+              if (tu%i==0){
+                  uocTu.push(i)
+              }
+          }
+          for (let i = 2; i <= mau; i++) {
+              if (mau%i==0){
+                  uocMau.push(i)
+              }
+          }
+
+          alert(uocTu)
+          alert(uocMau)
+          let uocChung = []
+          for (let i = 0; i < uocTu.length; i++) {
+              for (let j = 0; j < uocMau.length; j++) {
+                  if (uocTu[i]==uocMau[j]){
+                      uocChung.push(uocTu[i])
+                  }
+              }
+          }
+          alert(uocChung)
+          let f = []
+          let count = 0
+          for (let i = uocChung.length-1; i >= 0; i = i - 1 - count) {
+              count = 0
+              for (let j = 0; j < i; j++) {
+                  if (uocChung[i]%uocChung[j]==0){
+                      count++
+                  }
+              }f.push(uocChung[i])
+          }
+          console.log(f)
+          let tich = 1
+          for (let i = 0; i < f.length; i++) {
+              tich*= f[i]
+          }
+          alert(tich)
+          alert('rut gon thanh: ' + tu/tich+' / '+ mau/tich)
+      }
+  }}
+  let x = prompt('Nhap vao phan so')
+  find(x)
+</script>
+</body>
+</html>

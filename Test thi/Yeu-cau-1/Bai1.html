@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao do dai cua mang: ')
+  let arr = new Array(n)
+  for (let i = 0; i < arr.length; i++) {
+    let element = prompt(`Nhap vao phan tu co chi so ${i} vao mang`)
+    arr[i]= element
+  }
+  alert(arr)
+  let khoangCach = arr[1] - arr[0]
+  let count = 0
+  for (let i = 2; i < arr.length; i++) {
+    if(arr[i]-arr[i-1]==khoangCach){
+      count++
+    }
+
+  }
+  if (count == n - 2){
+    alert('Ok')
+  }else {alert('No')}
+</script>
+</body>
+</html>

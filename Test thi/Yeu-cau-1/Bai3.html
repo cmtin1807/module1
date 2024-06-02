@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function findMaxNumber(n) {
+    if (n<1000||n>9999){
+        alert('-1')
+    }
+    else {
+        let c = n.toString()
+        let d = c.split('')
+        console.log(d)
+        let e = []
+        for (let i = 0; i < d.length -1; i++) {
+            if(d[i]>=d[i+1]){
+                e.push(d[i])
+            }
+            else {
+                e.push(d[i+1])
+            }
+        }
+        console.log(e)
+        alert(e.join(''))
+    }
+  }
+    
+
+  let n = +prompt('Nhap vao so')
+  findMaxNumber(n)
+</script>
+</body>
+</html>

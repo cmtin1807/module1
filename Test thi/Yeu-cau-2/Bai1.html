@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt('Nhap vao do dai cua mang: ')
+  let arr = new Array(n)
+  for (let i = 0; i < arr.length; i++) {
+    let element = +prompt(`Nhap vao phan tu thu ${i} cua mang`)
+    arr[i] = element
+  }
+  alert(arr)
+  let count = 0
+  for (let i = 0; i < n/2-0.5; i++) {
+    if (arr[i] == arr[n-1-i]){
+        count++
+    }
+  }
+  console.log(count)
+  if (count == parseInt(n/2)){
+      alert('Ok')
+  }
+  else {alert('No')}
+</script>
+</body>
+</html>
