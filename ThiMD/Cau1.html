@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = '';
+    do {
+        n = +prompt('Nhap lai so can check nho hon hoac bang 20')
+    }
+    while (n > 20);
+    let arr = new Array(n)
+    for (let i = 0; i < arr.length; i++) {
+        let element = +prompt(`Nhap gia tri phan tu thu ${i} cua mang`);
+        arr[i] = element;
+    }
+    alert(`Mang vua tao la: ${arr}`)
+    let tongChan = 0;
+    let tongLe = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            tongChan += arr[i];
+        } else {
+            tongLe += arr[i];
+        }
+    }
+    let KQ = tongChan - tongLe
+    alert('Hieu chan le: '+ tongChan + '-' + tongLe + '=' + KQ)
+
+</script>
+</body>
+</html>

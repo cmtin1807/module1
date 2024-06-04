@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt('Nhap vao chuoi ky tu: ')
+    let UPPER = 'QWERTYUIOPLKJHGFDSAZXCVBNM'
+    let count = kiemTraChuoi(n)
+    function kiemTraChuoi(n) {
+        let count = 0;
+        for (let i = 0; i < n.length; i++) {
+            if (UPPER.indexOf(n[i]) !== -1)
+                count++;
+        }
+        return count
+    }
+
+    if (count == 0) {
+        alert('The Strings is not contain upper char')
+
+    } else {
+        alert(count)
+    }
+
+</script>
+
+</body>
+</html>
