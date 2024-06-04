@@ -1,9 +1,9 @@
 function add() {
-    let id = document.getElementById('id').value
-    let hang = document.getElementById('hang').value
+    let id = document.getElementById('maDienThoai').value
+    let hang = document.getElementById('ten').value
     let tenDienThoai = document.getElementById('tenDienThoai').value
     let gia = document.getElementById('gia').value
-    let soLuong = document.getElementById('id').value
+    let soLuong = document.getElementById('maDienThoai').value
     if (id == '' || hang == '' || tenDienThoai == '' || gia == '' || soLuong == '') {
         alert("Bạn nhập chưa đầy đủ. Vui lòng nhập lại")
     } else {
@@ -27,8 +27,8 @@ function add() {
 clearDataInForm();
 
 function clearDataInForm() {
-    document.getElementById('id').value = ''
-    document.getElementById('hang').value = ''
+    document.getElementById('maDienThoai').value = ''
+    document.getElementById('ten').value = ''
     document.getElementById('tenDienThoai').value = ''
     document.getElementById('gia').value = ''
     document.getElementById('soLuong').value = ''
@@ -40,8 +40,8 @@ let indexx = 0
 function editDienThoai(index) {
     let listDienThoai = JSON.parse(sessionStorage.getItem("listDienThoaiMoi"));
     let dienThoai = listDienThoai[index]
-    document.getElementById('id').value = dienThoai.id
-    document.getElementById('hang').value = dienThoai.hang
+    document.getElementById('maDienThoai').value = dienThoai.id
+    document.getElementById('ten').value = dienThoai.hang
     document.getElementById('tenDienThoai').value = dienThoai.tenDienThoai
     document.getElementById('gia').value = dienThoai.gia
     document.getElementById('soLuong').value = dienThoai.soLuong;
@@ -60,8 +60,8 @@ function editDienThoai(index) {
 
 function upDate() {
     let listDienThoai = JSON.parse(sessionStorage.getItem("listDienThoaiMoi"));
-    let id = document.getElementById('id').value;
-    let hang = document.getElementById('hang').value;
+    let id = document.getElementById('maDienThoai').value;
+    let hang = document.getElementById('ten').value;
     let tenDienThoai = document.getElementById('tenDienThoai').value;
     let gia = document.getElementById('gia').value;
     let soLuong = document.getElementById('soLuong').value;

@@ -7,8 +7,8 @@ let arr = [product, product1, product2,product3];
 let manage = new ProductManagement(arr);
 
 function addProduct(){
-    let id = document.getElementById('id').value;
-    let hang = document.getElementById('hang').value;
+    let id = document.getElementById('maDienThoai').value;
+    let hang = document.getElementById('ten').value;
     let sanPham = document.getElementById('sanPham').value;
     let gia = document.getElementById('gia').value;
     let soLuong = document.getElementById('soLuong').value;
@@ -21,8 +21,8 @@ function addProduct(){
 }
 
 function clear(){
-    document.getElementById('id').value = '';
-    document.getElementById('hang').value = '';
+    document.getElementById('maDienThoai').value = '';
+    document.getElementById('ten').value = '';
     document.getElementById('sanPham').value = '';
     document.getElementById('gia').value = '';
     document.getElementById('soLuong').value = '';
@@ -37,8 +37,8 @@ function deleteProduct(id) {
 let productId = 0;
 function editProduct(id){
     let product = manage.findProductById(id);
-    document.getElementById('id').value = product.id;
-    document.getElementById('hang').value = product.hang;
+    document.getElementById('maDienThoai').value = product.id;
+    document.getElementById('ten').value = product.hang;
     document.getElementById('sanPham').value = product.sanPham;
     document.getElementById('gia').value = product.gia;
     document.getElementById('soLuong').value = product.soLuong;
@@ -48,8 +48,8 @@ function editProduct(id){
 }
 
 function updateProduct(){
-    let id = document.getElementById('id').value;
-    let hang = document.getElementById('hang').value;
+    let id = document.getElementById('maDienThoai').value;
+    let hang = document.getElementById('ten').value;
     let sanPham = document.getElementById('sanPham').value;
     let gia = document.getElementById('gia').value;
     let soLuong = document.getElementById('soLuong').value;

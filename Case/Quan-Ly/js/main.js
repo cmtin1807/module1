@@ -5,8 +5,8 @@ let arr =[sanPham, sanPham1, sanPham2];
 let manage = new SanPhamManagement(arr);
 
 function addStudent(){
-    let id = document.getElementById('id').value;
-    let name = document.getElementById('hang').value;
+    let id = document.getElementById('maDienThoai').value;
+    let name = document.getElementById('ten').value;
     let date = document.getElementById('sanPham').value;
     let gender = document.getElementById('gia').value;
     let grade = document.getElementById('soLuong').value;
@@ -19,8 +19,8 @@ function addStudent(){
 }
 
 function clear(){
-    document.getElementById('id').value = '';
-    document.getElementById('hang').value = '';
+    document.getElementById('maDienThoai').value = '';
+    document.getElementById('ten').value = '';
     document.getElementById('sanPham').value = '';
     document.getElementById('gia').value = '';
     document.getElementById('soLuong').value = '';
@@ -35,8 +35,8 @@ function deleteStudent(id) {
 let sanPhamId = 0;
 function editSanPham(id){
     let student = manage.findSanPhamById(id);
-    document.getElementById('id').value = sanPham.id;
-    document.getElementById('hang').value = sanPham.fullname;
+    document.getElementById('maDienThoai').value = sanPham.id;
+    document.getElementById('ten').value = sanPham.fullname;
     document.getElementById('sanPham').value = sanPham.date;
     document.getElementById('gia').value = sanPham.gender;
     document.getElementById('soLuong').value = sanPham.grade;
@@ -46,8 +46,8 @@ function editSanPham(id){
 }
 
 function updateSanPham(){
-    let id = document.getElementById('id').value;
-    let name = document.getElementById('hang').value;
+    let id = document.getElementById('maDienThoai').value;
+    let name = document.getElementById('ten').value;
     let date = document.getElementById('sanPham').value;
     let gender = document.getElementById('gia').value;
     let grade = document.getElementById('soLuong').value;

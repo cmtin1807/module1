@@ -27,7 +27,7 @@
 <script>
 
     class Phone {
-        constructor(id, hang, name, price, quantity) {
+        constructor(maDienThoai, ten, hang, gia, quantity) {
             this.id = id;
             this.hang = hang
             this.name = name;
@@ -36,7 +36,7 @@
         }
 
         getId() {
-            return this.id
+            return this.maDienThoai
         }
 
     }
@@ -71,10 +71,10 @@
         }
     }
     function add() {
-        let id = document.getElementById('id').value
-        let hang = document.getElementById('hang').value
+        let maDienThoai = document.getElementById('id').value
+        let ten = document.getElementById('hang').value
         let product = document.getElementById('name').value
-        let price = document.getElementById('price').value
+        let gia = document.getElementById('price').value
         let quantity = document.getElementById('quantity').value
         if (id == '' || hang == '' || product == '' || price == '' || quantity == '') {
             alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')

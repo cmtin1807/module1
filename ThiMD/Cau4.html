@@ -2,22 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quản Lý Điện Thoại Của Cửa Hàng Điện Máy Xanh</title>
+
 </head>
 <body>
+<h1> KHO QUẢN LÝ ĐIỆN THOẠI </h1>
+<div id="form">
+    <h3>Thêm Sản Phẩm Điện Thoại Vào Kho</h3>
+    <input type="text" id="maDienThoai" placeholder="Mã Điện Thoại">
+    <input type="text" id="ten" placeholder="Hãng">
+    <input type="text" id="hang" placeholder="Tên Điện Thoại">
+    <input type="text" id="gia" placeholder="Giá Điện Thoại">
+    <button id="add" onclick="add()">Add</button>
+</div>
+<h3>Tất Cả Sản Phẩm Điện Thoại Trong Kho Cửa Hàng</h3>
+<span>Tìm kiếm: </span><input id="timkiem" type="text"><button type="button" onclick="timKiem()">Tim</button>
+<span>Sắp xếp theo:</span>
+
+<select id="sortOptions" onchange="sortProducts()">
+    <option value="ten">Hãng</option>
+    <option value="hang">Tên Sản Phẩm</option>
+</select>
+<select id="sortNumber" onchange="sortNumber()">
+    <option value="gia">Giá</option>
+    <option value="quantity">Số Lượng Sản Phẩm</option>
+</select>
+<div id="result"></div>
 <script>
     class Phone {
-        constructor(maDienThoai,name,hang,gia) {
+        constructor(maDienThoai, ten, hang, gia) {
             this.maDienThoai = maDienThoai;
-            this.name = name;
+            this.ten = ten
             this.hang = hang;
-            this.gia = gia
+            this.gia = gia;
         }
-        toString(){
-            return alert(`Mã Điện Thoại: ${this.maDienThoai} tên điện thoại là: ${this.name} hãng điện thoại là: ${this.hang} giá điện thoại là: ${this.gia}`)
+        toString() {
+            return `Mã Điện Thoại ${this.maDienThoai},Mã Điện Thoại ${this.maDienThoai},Tên Điện Thoại ${this.ten},Hãng Điện Thoại ${this.hang}, Giá Điện Thoại ${this.gia}`
         }
     }
-    Phone.toString()
+    if (sessionStorage.getItem('productListNew') == null) {
+        sessionStorage.setItem("productListNew", JSON.stringify([
+            new Phone('SS22', 'Samsung Galaxy S22', "Samsung", 900),
+            new Phone('IP6', 'Iphone 6S ', 'Iphone', 100),
+            new Phone('Ip15', 'Iphone 15Pro Max', 'Iphone', 1100),
+            new Phone('SS23', 'Samsung Galaxy S23', "Samsung", 1200),
+        ]))
+    }
+    display()
+    function display() {
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+        console.log(productList)
+        let data = `<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Mã Điện Thoại</th>
+        <th>Tên Điện Thoại</th>
+        <th>Hãng Điện Thoại</th>
+        <th>Giá  ($)</th>
+    </tr>`
+        for (let i = 0; i < productList.length; i++) {
+            data += `   <tr>
+        <td>${i + 1}</td>
+        <td>${productList[i].maDienThoai}</td>
+        <td>${productList[i].ten}</td>
+        <td>${productList[i].hang}</td>
+        <td>${productList[i].gia}</td>
+    </tr>`
+        }
+        data += `</table>`
+        document.getElementById('result').innerHTML = data
+    }
+    function timKiem() {
+        let input = document.getElementById('timkiem');
+        let filter = input.value.toUpperCase();
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+        let filteredProducts = [];
+        for (let i = 0; i < productList.length; i++) {
+            if (productList[i].name.toUpperCase().includes(filter)) {
+                filteredProducts.push(productList[i]);
+            }
+        }
+        hienThiLai(filteredProducts);
+    }
+    function sortProducts() {
+        let sortValue = document.getElementById('sortOptions').value;
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+        productList.sort((a, b) => {
+            if (a[sortValue] < b[sortValue]) return -1;
+            if (a[sortValue] > b[sortValue]) return 1;
+            return 0;
+        });
+        hienThiLai(productList);
+    }
+    function sortNumber() {
+        let sortValue = document.getElementById('sortNumber').value;
+        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+        productList.sort((a, b) => {
+            let aValue = parseFloat(a[sortValue]);
+            let bValue = parseFloat(b[sortValue]);
+            return aValue - bValue;
+        });
+        hienThiLai(productList);
+    }
+    function hienThiLai(filteredProducts) {
+        let data = `<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Mã Điện Thoại</th>
+        <th>Hãng</th>
+        <th>Sản Phẩm</th>
+        <th>Giá ($)</th>
+    </tr>`;
+        for (let i = 0; i < filteredProducts.length; i++) {
+            data += `<tr>
+        <td>${i + 1}</td>
+        <td>${filteredProducts[i].maDienThoai}</td>
+        <td>${filteredProducts[i].ten}</td>
+        <td>${filteredProducts[i].hang}</td>
+        <td>${filteredProducts[i].gia}</td>
+    </tr>`;
+        }
+        data += `</table>`;
+        document.getElementById('result').innerHTML = data;
+    }
+    function add() {
+        let maDienThoai = document.getElementById('maDienThoai').value
+        let ten = document.getElementById('ten').value
+        let hang = document.getElementById('hang').value
+        let gia = document.getElementById('gia').value
+        if (maDienThoai == '' || ten == '' || hang == '' || gia == '' ) {
+            alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
+        } else {
+            let productList = JSON.parse(sessionStorage.getItem("productListNew"));
+            productList.push(new Phone(maDienThoai, ten, hang, gia));
+            document.getElementById('maDienThoai').value = ''
+            document.getElementById('ten').value = ''
+            document.getElementById('hang').value = ''
+            document.getElementById('gia').value = ''
+            sessionStorage.setItem("productListNew", JSON.stringify(productList))
+            display()
+        }
+    }
+
 </script>
 </body>
 </html>

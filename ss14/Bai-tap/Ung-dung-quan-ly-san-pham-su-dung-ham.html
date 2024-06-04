@@ -14,7 +14,7 @@
 
 <script>
     class Phone {
-        constructor(id,name) {
+        constructor(maDienThoai,hang) {
             this.id =id;
             this.name = name;
         }
@@ -28,7 +28,7 @@
     let productList = ['Samsung Galaxy', 'Nokia 6', 'Aplle Iphone 6s', 'Aplle Iphone 7' , 'Aplle Iphone 6P' , 'Samsung M1'];
     display()
     function add(){
-        let name = document.getElementById("name").value;
+        let hang = document.getElementById("name").value;
         if (name == ''){
             alert('Bạn chưa nhập sản phẩm. Vui lòng nhập tên sản phẩm')
         }

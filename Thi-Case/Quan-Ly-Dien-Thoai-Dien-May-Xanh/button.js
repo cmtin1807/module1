@@ -1,18 +1,18 @@
 function add() {
-    let id = document.getElementById('id').value
-    let hang = document.getElementById('hang').value
-    let name = document.getElementById('name').value
-    let price = document.getElementById('price').value
+    let id = document.getElementById('maDienThoai').value
+    let hang = document.getElementById('ten').value
+    let name = document.getElementById('hang').value
+    let price = document.getElementById('gia').value
     let quantity = document.getElementById('quantity').value
     if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {
         alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
     } else {
         let productList = JSON.parse(sessionStorage.getItem("productListNew"));
         productList.push(new Phone(id, hang, name, price, quantity));
-        document.getElementById('id').value = ''
+        document.getElementById('maDienThoai').value = ''
+        document.getElementById('ten').value = ''
         document.getElementById('hang').value = ''
-        document.getElementById('name').value = ''
-        document.getElementById('price').value = ''
+        document.getElementById('gia').value = ''
         document.getElementById('quantity').value = ''
         sessionStorage.setItem("productListNew", JSON.stringify(productList))
         display()
@@ -31,10 +31,10 @@ let indexx = 0
 function editProduct(index) {
     let productList = JSON.parse(sessionStorage.getItem("productListNew"));
     let book = productList[index]
-    document.getElementById('id').value = book.id;
-    document.getElementById('hang').value = book.hang;
-    document.getElementById('name').value = book.name;
-    document.getElementById('price').value = book.price;
+    document.getElementById('maDienThoai').value = book.id;
+    document.getElementById('ten').value = book.hang;
+    document.getElementById('hang').value = book.name;
+    document.getElementById('gia').value = book.price;
     document.getElementById('quantity').value = book.quantity;
     display()
     var buttons = document.querySelectorAll(".btn-edit");
@@ -49,10 +49,10 @@ function editProduct(index) {
 }
 function update() {
     let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-    let id = document.getElementById('id').value;
-    let hang = document.getElementById('hang').value;
-    let name = document.getElementById('name').value;
-    let price = document.getElementById('price').value;
+    let id = document.getElementById('maDienThoai').value;
+    let hang = document.getElementById('ten').value;
+    let name = document.getElementById('hang').value;
+    let price = document.getElementById('gia').value;
     let quantity = document.getElementById('quantity').value;
     if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {
         alert('Bạn chưa nhập đầy đủ thông tin sản phẩm. Vui lòng nhập đầy đủ thông tin.')
@@ -64,10 +64,10 @@ function update() {
         productList[indexx].quantity = quantity;
         sessionStorage.setItem("productListNew", JSON.stringify(productList));
         display();
-        document.getElementById('id').value = '';
+        document.getElementById('maDienThoai').value = '';
+        document.getElementById('ten').value = '';
         document.getElementById('hang').value = '';
-        document.getElementById('name').value = '';
-        document.getElementById('price').value = '';
+        document.getElementById('gia').value = '';
         document.getElementById('quantity').value = '';
     }
     var buttons = document.querySelectorAll(".btn-edit");

@@ -89,11 +89,11 @@
 <span>Sắp xếp theo:</span>
 
   <select id="sortOptions" onchange="sortProducts()">
-    <option value="hang">Hãng</option>
-    <option value="name">Tên Sản Phẩm</option>
+    <option value="ten">Hãng</option>
+    <option value="hang">Tên Sản Phẩm</option>
   </select>
   <select id="sortNumber" onchange="sortNumber()">
-  <option value="price">Giá</option>
+  <option value="gia">Giá</option>
   <option value="quantity">Số Lượng Sản Phẩm</option>
   </select>
 
@@ -101,7 +101,7 @@
 <script>
 
   class Phone {
-    constructor(id, hang, name, price, quantity) {
+    constructor(maDienThoai, ten, hang, gia, quantity) {
       this.id = id;
       this.hang = hang
       this.name = name;
@@ -110,7 +110,7 @@
     }
 
     getId() {
-      return this.id
+      return this.maDienThoai
     }
 
   }
@@ -223,10 +223,10 @@
 
 
   function add() {
-    let id = document.getElementById('id').value
-    let hang = document.getElementById('hang').value
-    let name = document.getElementById('name').value
-    let price = document.getElementById('price').value
+    let maDienThoai = document.getElementById('id').value
+    let ten = document.getElementById('hang').value
+    let hang = document.getElementById('name').value
+    let gia = document.getElementById('price').value
     let quantity = document.getElementById('quantity').value
     if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {
       alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
@@ -312,10 +312,10 @@
 
   function update() {
     let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-    let id = document.getElementById('id').value;
-    let hang = document.getElementById('hang').value;
-    let name = document.getElementById('name').value;
-    let price = document.getElementById('price').value;
+    let maDienThoai = document.getElementById('id').value;
+    let ten = document.getElementById('hang').value;
+    let hang = document.getElementById('name').value;
+    let gia = document.getElementById('price').value;
     let quantity = document.getElementById('quantity').value;
 
     if (id == '' || hang == '' || name == '' || price == '' || quantity == '') {

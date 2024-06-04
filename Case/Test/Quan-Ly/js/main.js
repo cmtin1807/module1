@@ -5,7 +5,7 @@ let arr =[student, student1, student2];
 let manage = new StudentManagement(arr);
 
 function addStudent(){
-    let id = document.getElementById('id').value;
+    let id = document.getElementById('maDienThoai').value;
     let name = document.getElementById('fullname').value;
     let date = document.getElementById('date').value;
     let gender = document.getElementById('gender').value;
@@ -19,7 +19,7 @@ function addStudent(){
 }
 
 function clear(){
-    document.getElementById('id').value = '';
+    document.getElementById('maDienThoai').value = '';
     document.getElementById('fullname').value = '';
     document.getElementById('date').value = '';
     document.getElementById('gender').value = '';
@@ -35,7 +35,7 @@ function deleteStudent(id) {
 let studentId = 0;
 function editStudent(id){
     let student = manage.findStudentById(id);
-    document.getElementById('id').value = student.id;
+    document.getElementById('maDienThoai').value = student.id;
     document.getElementById('fullname').value = student.fullname;
     document.getElementById('date').value = student.date;
     document.getElementById('gender').value = student.gender;
@@ -46,7 +46,7 @@ function editStudent(id){
 }
 
 function updateStudent(){
-    let id = document.getElementById('id').value;
+    let id = document.getElementById('maDienThoai').value;
     let name = document.getElementById('fullname').value;
     let date = document.getElementById('date').value;
     let gender = document.getElementById('gender').value;

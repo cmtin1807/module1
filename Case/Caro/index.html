@@ -13,7 +13,7 @@
     <div id="board-cpanel">
       <button class="btn1 btn-med" id="newGame" onclick="newGame()">New Game</button>
       <button class="btn1 btn-med" id="resign" onclick="resign()">Resign</button>
-      <!--              <button class="btn1 btn-med" id="undo" onclick="undo()">Undo</button>-->
+      <!--              <button class="btn1 btn-med" maDienThoai="undo" onclick="undo()">Undo</button>-->
     </div>
   </center>
 </div>
@@ -24,7 +24,7 @@
       for (let i = 0; i < amountRows; i++) {
         document.write('<tr>');
         for (let j = 0; j < amountCols; j++) {
-          document.write('<td class="square" id="s' + String('00' + i).slice(-2) + String('00' + j).slice(-2) + '" onclick="squareClick(' + i + ',' + j + ' )"></td>');
+          document.write('<td class="square" maDienThoai="s' + String('00' + i).slice(-2) + String('00' + j).slice(-2) + '" onclick="squareClick(' + i + ',' + j + ' )"></td>');
         }
         document.write('</tr>');
       }
