@@ -16,16 +16,11 @@
     <button id="add" onclick="add()">Add</button>
 </div>
 <h3>Tất Cả Sản Phẩm Điện Thoại Trong Kho Cửa Hàng</h3>
-<span>Tìm kiếm: </span><input id="timkiem" type="text"><button type="button" onclick="timKiem()">Tim</button>
 <span>Sắp xếp theo:</span>
 
 <select id="sortOptions" onchange="sortProducts()">
     <option value="ten">Hãng</option>
     <option value="hang">Tên Sản Phẩm</option>
-</select>
-<select id="sortNumber" onchange="sortNumber()">
-    <option value="gia">Giá</option>
-    <option value="quantity">Số Lượng Sản Phẩm</option>
 </select>
 <div id="result"></div>
 <script>
@@ -40,6 +35,7 @@
             return `Mã Điện Thoại ${this.maDienThoai},Mã Điện Thoại ${this.maDienThoai},Tên Điện Thoại ${this.ten},Hãng Điện Thoại ${this.hang}, Giá Điện Thoại ${this.gia}`
         }
     }
+
     if (sessionStorage.getItem('productListNew') == null) {
         sessionStorage.setItem("productListNew", JSON.stringify([
             new Phone('SS22', 'Samsung Galaxy S22', "Samsung", 900),
@@ -49,6 +45,7 @@
         ]))
     }
     display()
+
     function display() {
         let productList = JSON.parse(sessionStorage.getItem("productListNew"));
         console.log(productList)
@@ -72,18 +69,7 @@
         data += `</table>`
         document.getElementById('result').innerHTML = data
     }
-    function timKiem() {
-        let input = document.getElementById('timkiem');
-        let filter = input.value.toUpperCase();
-        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-        let filteredProducts = [];
-        for (let i = 0; i < productList.length; i++) {
-            if (productList[i].name.toUpperCase().includes(filter)) {
-                filteredProducts.push(productList[i]);
-            }
-        }
-        hienThiLai(filteredProducts);
-    }
+
     function sortProducts() {
         let sortValue = document.getElementById('sortOptions').value;
         let productList = JSON.parse(sessionStorage.getItem("productListNew"));
@@ -94,16 +80,7 @@
         });
         hienThiLai(productList);
     }
-    function sortNumber() {
-        let sortValue = document.getElementById('sortNumber').value;
-        let productList = JSON.parse(sessionStorage.getItem("productListNew"));
-        productList.sort((a, b) => {
-            let aValue = parseFloat(a[sortValue]);
-            let bValue = parseFloat(b[sortValue]);
-            return aValue - bValue;
-        });
-        hienThiLai(productList);
-    }
+
     function hienThiLai(filteredProducts) {
         let data = `<table border="1">
     <tr>
@@ -125,12 +102,13 @@
         data += `</table>`;
         document.getElementById('result').innerHTML = data;
     }
+
     function add() {
         let maDienThoai = document.getElementById('maDienThoai').value
         let ten = document.getElementById('ten').value
         let hang = document.getElementById('hang').value
         let gia = document.getElementById('gia').value
-        if (maDienThoai == '' || ten == '' || hang == '' || gia == '' ) {
+        if (maDienThoai == '' || ten == '' || hang == '' || gia == '') {
             alert('Bạn chưa nhập đầy đủ sản phẩm. Vui lòng nhập sản phẩm  cần thêm')
         } else {
             let productList = JSON.parse(sessionStorage.getItem("productListNew"));
@@ -143,6 +121,7 @@
             display()
         }
     }
+
 
 </script>
 </body>
